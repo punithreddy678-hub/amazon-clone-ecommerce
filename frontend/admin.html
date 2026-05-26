@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0"/>
+
+    <title>Admin Dashboard</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js">
+    </script>
+
+</head>
+<body>
+
+    <div class="admin-container">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <h2>Admin Panel</h2>
+
+            <ul>
+
+                <li>Dashboard</li>
+                <li>Products</li>
+                <li>Orders</li>
+                <li>Users</li>
+                <li>Analytics</li>
+
+            </ul>
+
+        </aside>
+
+        <!-- MAIN -->
+
+        <main class="admin-main">
+
+            <h1>Analytics Dashboard</h1>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h2>Total Sales</h2>
+                    <p>$25,000</p>
+                </div>
+
+                <div class="card">
+                    <h2>Orders</h2>
+                    <p>320</p>
+                </div>
+
+                <div class="card">
+                    <h2>Users</h2>
+                    <p>150</p>
+                </div>
+
+            </div>
+
+            <!-- CHART -->
+
+            <div class="chart-container">
+
+                <canvas id="salesChart"></canvas>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="js/admin.js"></script>
+
+</body>
+</html>

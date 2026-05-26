@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8"/>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>ShopX E-Commerce</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <h2>ShopX</h2>
+        </div>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+            />
+
+            <button onclick="searchProducts()">
+                <i class="fa fa-search"></i>
+            </button>
+
+            <button onclick="startVoiceSearch()">
+                🎤
+            </button>
+
+        </div>
+
+        <div class="nav-icons">
+
+            <a href="wishlist.html">
+                <i class="fa fa-heart"></i>
+            </a>
+
+            <a href="cart.html">
+                <i class="fa fa-shopping-cart"></i>
+            </a>
+
+            <a href="login.html">
+                <i class="fa fa-user"></i>
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Biggest Sale of the Year
+            </h1>
+
+            <p>
+                Electronics, Fashion,
+                Mobiles, Grocery,
+                Books & More
+            </p>
+
+            <button>
+                Shop Now
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- CATEGORIES -->
+
+    <section class="categories">
+
+        <div class="category-card">
+            Electronics
+        </div>
+
+        <div class="category-card">
+            Fashion
+        </div>
+
+        <div class="category-card">
+            Mobiles
+        </div>
+
+        <div class="category-card">
+            Grocery
+        </div>
+
+        <div class="category-card">
+            Books
+        </div>
+
+        <div class="category-card">
+            Beauty
+        </div>
+
+        <div class="category-card">
+            Sports
+        </div>
+
+    </section>
+
+    <!-- PRODUCTS -->
+
+    <section class="products">
+
+        <h2>Trending Products</h2>
+
+        <div
+            class="product-grid"
+            id="products"
+        >
+
+        </div>
+
+    </section>
+
+    <!-- AI CHATBOT -->
+
+    <div class="chatbot-container">
+
+        <h2>AI Shopping Assistant</h2>
+
+        <div id="chatbotMessages">
+
+        </div>
+
+        <div class="chat-input-box">
+
+            <input
+                type="text"
+                id="chatInput"
+                placeholder="Ask AI..."
+            />
+
+            <button onclick="sendMessage()">
+                Send
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>ShopX E-Commerce</h3>
+
+        <p>
+            Built using HTML,
+            CSS, JavaScript,
+            Node.js & MySQL
+        </p>
+
+    </footer>
+
+    <!-- SCRIPTS -->
+
+    <script src="js/cart.js"></script>
+
+    <script src="js/products.js"></script>
+
+    <script src="js/chatbot.js"></script>
+
+</body>
+</html>

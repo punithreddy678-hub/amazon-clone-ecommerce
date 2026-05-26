@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8"/>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Shopping Cart</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    />
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <h2>ShopX</h2>
+        </div>
+
+        <div class="nav-icons">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="wishlist.html">
+                Wishlist
+            </a>
+
+        </div>
+
+    </nav>
+
+    <!-- CART PAGE -->
+
+    <div class="cart-page">
+
+        <h1>Your Shopping Cart</h1>
+
+        <div
+            class="cart-container"
+            id="cartItems"
+        >
+
+        </div>
+
+        <div class="cart-total">
+
+            <h2 id="cartTotal">
+                Total: $0
+            </h2>
+
+            <button onclick="checkout()">
+                Proceed To Checkout
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <h3>ShopX E-Commerce</h3>
+
+        <p>
+            Secure Shopping Experience
+        </p>
+
+    </footer>
+
+    <!-- SCRIPT -->
+
+    <script src="js/cartPage.js"></script>
+
+</body>
+</html>
