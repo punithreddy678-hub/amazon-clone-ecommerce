@@ -1,39 +1,78 @@
+console.log("Cart Loaded");
+
+const cartContainer =
+    document.getElementById("cartItems");
+
+const totalElement =
+    document.getElementById("cartTotal");
+
 let cart =
     JSON.parse(
         localStorage.getItem("cart")
     ) || [];
 
-console.log("Cart Loaded");
+function loadCart(){
 
-function addToCart(productId){
+    cartContainer.innerHTML = "";
 
-    const existingProduct =
-        cart.find(
-            item => item.id === productId
-        );
+    let total = 0;
 
-    if(existingProduct){
+    cart.forEach((item, index) => {
 
-        existingProduct.quantity += 1;
+        total += item.price * item.quantity;
 
-    }else{
+        cartContainer.innerHTML += `
 
-        cart.push({
+            <div class="cart-item">
 
-            id: productId,
-            quantity: 1
+                <img
+                    src="${item.image}"
+                    width="120"
+                >
 
-        });
+                <div>
 
-    }
+                    <h3>${item.name}</h3>
+
+                    <p>
+                        $${item.price}
+                    </p>
+
+                    <p>
+                        Quantity:
+                        ${item.quantity}
+                    </p>
+
+                    <button
+                        onclick="removeItem(${index})"
+                    >
+                        Remove
+                    </button>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+    totalElement.innerHTML =
+        "Total: $" + total;
+
+}
+
+function removeItem(index){
+
+    cart.splice(index, 1);
 
     localStorage.setItem(
         "cart",
         JSON.stringify(cart)
     );
 
-    console.log(cart);
-
-    alert("Product Added");
+    loadCart();
 
 }
+
+loadCart();

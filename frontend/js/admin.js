@@ -1,5 +1,12 @@
+const API_URL =
+    "https://shopx-backend.onrender.com";
+
+// SALES CHART
+
 const ctx =
-    document.getElementById("salesChart");
+    document.getElementById(
+        "salesChart"
+    );
 
 new Chart(ctx, {
 
@@ -32,3 +39,29 @@ new Chart(ctx, {
     }
 
 });
+
+// FETCH PRODUCTS
+
+async function fetchProducts(){
+
+    try{
+
+        const response =
+            await fetch(
+                API_URL + "/api/products"
+            );
+
+        const data =
+            await response.json();
+
+        console.log(data);
+
+    }catch(error){
+
+        console.log(error);
+
+    }
+
+}
+
+fetchProducts();
