@@ -9,37 +9,49 @@ let cart =
 async function loadCart(){
 
     const response = await fetch(
-        "http://localhost:5000/api/products"
+        https://shopx-backend-ricr.onrender.com
     );
 
-    const products = await response.json();
-
-    const cartProducts =
-        products.filter(product =>
-            cart.includes(product.id)
-        );
+    const products =
+        await response.json();
 
     cartItemsDiv.innerHTML = "";
 
     let total = 0;
 
-    cartProducts.forEach((product)=>{
+    cart.forEach((cartItem)=>{
 
-        total += Number(product.price);
+        const product =
+            products.find(
+                p => p.id === cartItem.id
+            );
 
-        cartItemsDiv.innerHTML += `
+        if(product){
 
-            <div class="cart-card">
+            total +=
+                Number(product.price)
+                * cartItem.quantity;
 
-                <img src="${product.image}"/>
+            cartItemsDiv.innerHTML += `
 
-                <h3>${product.title}</h3>
+                <div class="cart-card">
 
-                <h2>$${product.price}</h2>
+                    <img src="${product.image}"/>
 
-            </div>
+                    <h3>${product.title}</h3>
 
-        `;
+                    <h2>$${product.price}</h2>
+
+                    <p>
+                        Quantity:
+                        ${cartItem.quantity}
+                    </p>
+
+                </div>
+
+            `;
+
+        }
 
     });
 
@@ -52,10 +64,6 @@ async function loadCart(){
 }
 
 function checkout(){
-
-    alert(
-        "Redirecting To Payment..."
-    );
 
     window.location.href =
         "payment.html";

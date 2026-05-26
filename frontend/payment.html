@@ -15,29 +15,56 @@
 </head>
 <body>
 
-    <div class="payment-page">
+<div class="payment-page">
 
-        <h1>Payment Gateway</h1>
+    <h1>Secure Payment</h1>
 
-        <div class="payment-box">
+    <div class="payment-box">
 
-            <h2>Choose Payment Method</h2>
+        <input
+            type="text"
+            placeholder="Card Holder Name"
+        />
 
-            <button>
-                Razorpay Demo
-            </button>
+        <input
+            type="text"
+            placeholder="Card Number"
+        />
 
-            <button>
-                Stripe Demo
-            </button>
+        <input
+            type="text"
+            placeholder="Expiry"
+        />
 
-            <button>
-                Cash On Delivery
-            </button>
+        <input
+            type="text"
+            placeholder="CVV"
+        />
 
-        </div>
+        <button onclick="payNow()">
+            Pay Now
+        </button>
 
     </div>
+
+</div>
+
+<script>
+
+function payNow(){
+
+    alert(
+        "Demo Payment Successful"
+    );
+
+    localStorage.removeItem("cart");
+
+    window.location.href =
+        "index.html";
+
+}
+
+</script>
 
 </body>
 </html>

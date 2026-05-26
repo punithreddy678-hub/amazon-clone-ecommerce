@@ -139,6 +139,19 @@
         >
 
         </div>
+        <div class="search-box">
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search products..."
+    />
+
+    <button onclick="searchProducts()">
+        Search
+    </button>
+
+</div>
 
     </section>
 
@@ -167,6 +180,23 @@
         </div>
 
     </div>
+    <div class="chatbot">
+
+    <div id="chatbotMessages"></div>
+
+    <input
+        type="text"
+        id="chatInput"
+        placeholder="Ask AI..."
+    />
+
+    <button onclick="sendMessage()">
+        Send
+    </button>
+
+</div>
+
+<script src="js/chatbot.js"></script>
 
     <!-- FOOTER -->
 

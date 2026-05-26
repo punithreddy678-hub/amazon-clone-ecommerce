@@ -1,33 +1,53 @@
-const chatBtn = document.getElementById("chatBtn");
+const chatbotMessages =
+    document.getElementById("chatbotMessages");
 
-if(chatBtn){
+function sendMessage(){
 
-    chatBtn.addEventListener("click", () => {
+    const input =
+        document.getElementById("chatInput");
 
-        const question = prompt(
-            "Ask ShopX AI Assistant:"
-        );
+    const userMessage =
+        input.value;
 
-        if(question){
+    chatbotMessages.innerHTML += `
 
-            let answer = "Sorry, I don't understand.";
+        <div class="user-msg">
+            ${userMessage}
+        </div>
 
-            if(question.includes("order")){
-                answer = "You can track orders in Orders Page.";
-            }
+    `;
 
-            if(question.includes("cart")){
-                answer = "Your cart items are saved.";
-            }
+    let botReply = "";
 
-            if(question.includes("mobile")){
-                answer = "Latest mobiles available with discounts.";
-            }
+    if(
+        userMessage.includes("mobile")
+    ){
 
-            alert(answer);
+        botReply =
+            "Check latest iPhones and Samsung mobiles.";
 
-        }
+    }else if(
+        userMessage.includes("fashion")
+    ){
 
-    });
+        botReply =
+            "Trending fashion products available.";
+
+    }else{
+
+        botReply =
+            "How can I help you today?";
+
+    }
+
+    chatbotMessages.innerHTML += `
+
+        <div class="bot-msg">
+            ${botReply}
+        </div>
+
+    `;
+
+    input.value = "";
 
 }
