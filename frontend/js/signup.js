@@ -19,7 +19,7 @@ if(registerForm){
         try{
 
             const response = await fetch(
-                "https://shopx-backend.onrender.com/api/auth/register",
+                "https://shopx-backend-ricr.onrender.com",
                 {
                     method: "POST",
                     headers: {

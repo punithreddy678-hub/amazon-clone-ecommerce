@@ -8,7 +8,7 @@ async function fetchProducts(){
     try{
 
         const response = await fetch(
-            https://shopx-backend-ricr.onrender.com
+            "https://shopx-backend-ricr.onrender.com"
         );
 
         const products =

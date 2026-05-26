@@ -1,5 +1,5 @@
 const API_URL =
-    "https://shopx-backend.onrender.com";
+    "https://shopx-backend-ricr.onrender.com";
 
 async function placeOrder(){
 

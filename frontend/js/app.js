@@ -1,7 +1,7 @@
 console.log("E-Commerce Website Loaded");
 
 const API_URL =
-    "https://shopx-backend.onrender.com";
+    "https://shopx-backend-ricr.onrender.com";
 
 // PRODUCTS
 

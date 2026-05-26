@@ -15,7 +15,7 @@ if(loginForm){
         try{
 
             const response = await fetch(
-                "https://shopx-backend.onrender.com/api/auth/login",
+                "https://shopx-backend-ricr.onrender.com",
                 {
                     method: "POST",
                     headers: {

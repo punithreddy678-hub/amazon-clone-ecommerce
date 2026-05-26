@@ -9,7 +9,7 @@ let cart =
 async function loadCart(){
 
     const response = await fetch(
-        https://shopx-backend-ricr.onrender.com
+        "https://shopx-backend-ricr.onrender.com"
     );
 
     const products =
