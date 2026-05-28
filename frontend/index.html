@@ -3,24 +3,24 @@
 
 <head>
 
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
 
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
-    />
+    >
 
     <title>VELA AUDIO</title>
 
     <link
         rel="stylesheet"
         href="css/style.css"
-    />
+    >
 
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+    >
 
 </head>
 
@@ -31,53 +31,32 @@
     <nav class="navbar">
 
         <div class="logo">
-
             <h1>VELA</h1>
-
             <span>AUDIO</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="#products">Products</a>
+
+            <a href="#about">About Us</a>
+
+            <a href="#contact">Contact Us</a>
+
+            <a href="#support">Support</a>
 
         </div>
 
-        <ul class="nav-links">
-
-            <li>
-                <a href="#products">
-                    Products
-                </a>
-            </li>
-
-            <li>
-                <a href="#about">
-                    About Us
-                </a>
-            </li>
-
-            <li>
-                <a href="#contact">
-                    Contact Us
-                </a>
-            </li>
-
-            <li>
-                <a href="#support">
-                    Support
-                </a>
-            </li>
-
-        </ul>
-
         <div class="nav-icons">
 
-            <a href="wishlist.html">
-                <i class="fa fa-heart"></i>
-            </a>
-
-            <a href="cart.html">
-                <i class="fa fa-shopping-cart"></i>
-            </a>
+            <i class="fa fa-search"></i>
 
             <a href="login.html">
                 <i class="fa fa-user"></i>
+            </a>
+
+            <a href="cart.html">
+                <i class="fa fa-cart-shopping"></i>
             </a>
 
         </div>
@@ -92,47 +71,18 @@
 
             <h1>
                 EXPERIENCE PURE SOUND.
+                <br>
                 EVERYWHERE.
             </h1>
 
             <p>
-                Explore premium electronics and accessories.
+                Explore the new Lunar Series and more.
             </p>
 
             <button>
-                SHOP NOW
+                SHOP LUNAR SERIES
             </button>
 
-        </div>
-
-    </section>
-
-    <!-- CATEGORIES -->
-
-    <section class="categories">
-
-        <div class="category-card">
-            Headphones
-        </div>
-
-        <div class="category-card">
-            Speakers
-        </div>
-
-        <div class="category-card">
-            Earbuds
-        </div>
-
-        <div class="category-card">
-            Smart Watches
-        </div>
-
-        <div class="category-card">
-            Gaming
-        </div>
-
-        <div class="category-card">
-            Accessories
         </div>
 
     </section>
@@ -144,83 +94,14 @@
         id="products"
     >
 
-        <h2>
+        <h2 class="section-title">
             Featured Products
         </h2>
 
-        <div class="product-grid">
-
-            <div class="product-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
-                />
-
-                <div class="product-info">
-
-                    <h3>
-                        Lunar ANC Headphones
-                    </h3>
-
-                    <p>
-                        $299
-                    </p>
-
-                    <button>
-                        Add To Cart
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="product-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1583225157631-f3a10c36c36c"
-                />
-
-                <div class="product-info">
-
-                    <h3>
-                        Bluetooth Speaker
-                    </h3>
-
-                    <p>
-                        $149
-                    </p>
-
-                    <button>
-                        Add To Cart
-                    </button>
-
-                </div>
-
-            </div>
-
-            <div class="product-card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46"
-                />
-
-                <div class="product-info">
-
-                    <h3>
-                        Wireless Earbuds
-                    </h3>
-
-                    <p>
-                        $89
-                    </p>
-
-                    <button>
-                        Add To Cart
-                    </button>
-
-                </div>
-
-            </div>
+        <div
+            class="product-grid"
+            id="productGrid"
+        >
 
         </div>
 
@@ -229,18 +110,23 @@
     <!-- ABOUT -->
 
     <section
-        class="about-section"
+        class="about"
         id="about"
     >
 
-        <h2>
-            About Us
-        </h2>
+        <h2>About Us</h2>
 
         <p>
-            VELA AUDIO delivers premium quality gadgets,
-            sound systems, gaming accessories and smart devices
-            for modern lifestyle users.
+
+            VELA AUDIO creates premium headphones,
+            earbuds, smart watches, speakers,
+            gaming accessories and modern lifestyle
+            technology for music lovers.
+
+            Our mission is to deliver immersive
+            sound experiences with premium design
+            and performance.
+
         </p>
 
     </section>
@@ -248,87 +134,168 @@
     <!-- CONTACT -->
 
     <section
-        class="contact-section"
+        class="contact"
         id="contact"
     >
 
-        <h2>
-            Contact Us
-        </h2>
+        <h2>Contact Us</h2>
 
-        <p>Email: support@velaaudio.com</p>
+        <div class="contact-container">
 
-        <p>Phone: +91 9876543210</p>
+            <div class="contact-box">
+
+                <h3>Email</h3>
+
+                <p>
+                    support@velaaudio.com
+                </p>
+
+            </div>
+
+            <div class="contact-box">
+
+                <h3>Phone</h3>
+
+                <p>
+                    +91 9876543210
+                </p>
+
+            </div>
+
+        </div>
 
     </section>
 
     <!-- SUPPORT -->
 
     <section
-        class="support-section"
+        class="support"
         id="support"
     >
 
-        <h2>
+        <h2 class="section-title">
             Support
         </h2>
 
-        <p>
-            Ask us any questions about products,
-            orders, payments and warranty support.
-        </p>
+        <div class="support-grid">
 
-    </section>
+            <div class="support-card">
 
-    <!-- CHATBOT -->
+                <h3>Shipping</h3>
 
-    <div class="chatbot-container">
+                <p>
+                    Fast worldwide shipping.
+                </p>
 
-        <h3>
-            Ask Me Questions
-        </h3>
+            </div>
 
-        <div id="chatbotMessages"></div>
+            <div class="support-card">
 
-        <div class="chat-input">
+                <h3>Warranty</h3>
 
-            <input
-                type="text"
-                id="chatInput"
-                placeholder="Ask something..."
-            />
+                <p>
+                    1 year premium warranty.
+                </p>
 
-            <button onclick="sendMessage()">
-                Send
-            </button>
+            </div>
+
+            <div class="support-card">
+
+                <h3>24/7 Support</h3>
+
+                <p>
+                    We are always available.
+                </p>
+
+            </div>
 
         </div>
 
-    </div>
+    </section>
 
     <!-- FOOTER -->
 
     <footer>
 
-        <div class="social-icons">
+        <div class="footer-container">
 
-            <i class="fab fa-facebook"></i>
+            <div>
 
-            <i class="fab fa-instagram"></i>
+                <h2>VELA AUDIO</h2>
 
-            <i class="fab fa-twitter"></i>
+                <p>
+                    Premium Audio Experience
+                </p>
+
+                <div class="social-icons">
+
+                    <i class="fab fa-facebook"></i>
+
+                    <i class="fab fa-instagram"></i>
+
+                    <i class="fab fa-twitter"></i>
+
+                    <i class="fab fa-youtube"></i>
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <h3>Products</h3>
+
+                <a href="#">
+                    Headphones
+                </a>
+
+                <a href="#">
+                    Speakers
+                </a>
+
+                <a href="#">
+                    Earbuds
+                </a>
+
+            </div>
+
+            <div>
+
+                <h3>Support</h3>
+
+                <a href="#">
+                    Contact
+                </a>
+
+                <a href="#">
+                    Help Center
+                </a>
+
+            </div>
+
+            <div>
+
+                <h3>Company</h3>
+
+                <a href="#">
+                    About
+                </a>
+
+                <a href="#">
+                    Careers
+                </a>
+
+            </div>
 
         </div>
 
-        <p>
-            © 2026 VELA AUDIO
-        </p>
-
     </footer>
 
-    <script src="js/app.js"></script>
+    <script src="js/products.js"></script>
 
-    <script src="js/chatbot.js"></script>
+    <script src="js/cart.js"></script>
+
+    <script src="js/app.js"></script>
 
 </body>
 

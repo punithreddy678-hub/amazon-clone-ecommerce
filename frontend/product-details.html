@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Product Details</title>
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -25,58 +18,28 @@
 
         <img
             id="productImage"
-            width="300"
+            src=""
         >
 
-        <div>
+        <div class="details-content">
 
             <h1 id="productName"></h1>
 
-            <h2 id="productPrice"></h2>
+            <p id="productPrice"></p>
 
-            <p id="productDescription"></p>
+            <p>
+                Premium quality sound experience.
+            </p>
 
-            <button onclick="addWishlist()">
-                Add To Wishlist
+            <button onclick="addCurrentProductToCart()">
+                Add To Cart
             </button>
 
         </div>
 
     </div>
 
-    <!-- REVIEWS -->
-
-    <div class="reviews-section">
-
-        <h2>Product Reviews</h2>
-
-        <form id="reviewForm">
-
-            <input
-                type="text"
-                id="username"
-                placeholder="Your Name"
-            >
-
-            <textarea
-                id="review"
-                placeholder="Write Review"
-            ></textarea>
-
-            <button type="submit">
-                Add Review
-            </button>
-
-        </form>
-
-        <div id="reviewList"></div>
-
-    </div>
-
     <script src="js/product-details.js"></script>
 
-    <script src="js/review.js"></script>
-
 </body>
-
 </html>

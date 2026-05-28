@@ -2,49 +2,71 @@
 <html lang="en">
 <head>
 
-<meta charset="UTF-8"/>
+    <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width,
-      initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin Dashboard</title>
+    <title>Admin Dashboard</title>
 
-<link rel="stylesheet"
-      href="css/style.css"/>
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
+
 <body>
 
-<div class="dashboard">
+    <div class="admin-container">
 
-    <h1>Admin Analytics</h1>
+        <div class="sidebar">
 
-    <div class="analytics-grid">
+            <h2>Admin</h2>
 
-        <div class="card">
-            <h2>Total Orders</h2>
-            <p>120</p>
+            <ul>
+
+                <li>Dashboard</li>
+
+                <li>Products</li>
+
+                <li>Orders</li>
+
+                <li>Users</li>
+
+                <li>Analytics</li>
+
+            </ul>
+
         </div>
 
-        <div class="card">
-            <h2>Total Revenue</h2>
-            <p>$15,000</p>
-        </div>
+        <div class="admin-main">
 
-        <div class="card">
-            <h2>Total Users</h2>
-            <p>340</p>
-        </div>
+            <h1>
+                Dashboard
+            </h1>
 
-        <div class="card">
-            <h2>Total Products</h2>
-            <p>58</p>
+            <div class="analytics">
+
+                <div class="analytics-card">
+                    Total Sales
+                </div>
+
+                <div class="analytics-card">
+                    Orders
+                </div>
+
+                <div class="analytics-card">
+                    Users
+                </div>
+
+                <div class="analytics-card">
+                    Revenue
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
-</div>
+    <script src="js/admin.js"></script>
 
 </body>
 </html>

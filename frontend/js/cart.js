@@ -1,78 +1,20 @@
-console.log("Cart Loaded");
+function addToCart(id){
 
-const cartContainer =
-    document.getElementById("cartItems");
+    const product =
+        products.find(p => p.id === id);
 
-const totalElement =
-    document.getElementById("cartTotal");
+    let cart =
+        JSON.parse(
+            localStorage.getItem("cart")
+        ) || [];
 
-let cart =
-    JSON.parse(
-        localStorage.getItem("cart")
-    ) || [];
-
-function loadCart(){
-
-    cartContainer.innerHTML = "";
-
-    let total = 0;
-
-    cart.forEach((item, index) => {
-
-        total += item.price * item.quantity;
-
-        cartContainer.innerHTML += `
-
-            <div class="cart-item">
-
-                <img
-                    src="${item.image}"
-                    width="120"
-                >
-
-                <div>
-
-                    <h3>${item.name}</h3>
-
-                    <p>
-                        $${item.price}
-                    </p>
-
-                    <p>
-                        Quantity:
-                        ${item.quantity}
-                    </p>
-
-                    <button
-                        onclick="removeItem(${index})"
-                    >
-                        Remove
-                    </button>
-
-                </div>
-
-            </div>
-
-        `;
-
-    });
-
-    totalElement.innerHTML =
-        "Total: $" + total;
-
-}
-
-function removeItem(index){
-
-    cart.splice(index, 1);
+    cart.push(product);
 
     localStorage.setItem(
         "cart",
         JSON.stringify(cart)
     );
 
-    loadCart();
+    alert("Added To Cart");
 
 }
-
-loadCart();

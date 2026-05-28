@@ -1,73 +1,38 @@
-const cartItemsDiv =
+const cartItems =
     document.getElementById("cartItems");
 
-let cart =
+const cart =
     JSON.parse(
         localStorage.getItem("cart")
     ) || [];
 
-async function loadCart(){
+let total = 0;
 
-    const response = await fetch(
-        "https://shopx-backend-ricr.onrender.com"
-    );
+cart.forEach(item => {
 
-    const products =
-        await response.json();
+    total += item.price;
 
-    cartItemsDiv.innerHTML = "";
+    cartItems.innerHTML += `
 
-    let total = 0;
+    <div class="cart-item">
 
-    cart.forEach((cartItem)=>{
+        <img src="${item.image}">
 
-        const product =
-            products.find(
-                p => p.id === cartItem.id
-            );
+        <div>
 
-        if(product){
+            <h2>${item.name}</h2>
 
-            total +=
-                Number(product.price)
-                * cartItem.quantity;
+            <p>$${item.price}</p>
 
-            cartItemsDiv.innerHTML += `
+        </div>
 
-                <div class="cart-card">
-
-                    <img src="${product.image}"/>
-
-                    <h3>${product.title}</h3>
-
-                    <h2>$${product.price}</h2>
-
-                    <p>
-                        Quantity:
-                        ${cartItem.quantity}
-                    </p>
-
-                </div>
-
-            `;
-
-        }
-
-    });
-
-    cartItemsDiv.innerHTML += `
-
-        <h1>Total: $${total}</h1>
+    </div>
 
     `;
 
-}
+});
 
-function checkout(){
-
-    window.location.href =
-        "payment.html";
-
-}
-
-loadCart();
+document.getElementById(
+    "cartTotal"
+).innerText =
+`Total: $${total}`;

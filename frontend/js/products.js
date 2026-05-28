@@ -1,112 +1,64 @@
-const productsContainer =
-    document.getElementById("products");
+const products = [
 
-let allProducts = [];
+    {
+        id:1,
+        name:"Lunar ANC Headphone",
+        price:299,
+        image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+    },
 
-async function fetchProducts(){
+    {
+        id:2,
+        name:"Bluetooth Speaker",
+        price:150,
+        image:"https://images.unsplash.com/photo-1545454675-3531b543be5d"
+    },
 
-    try{
+    {
+        id:3,
+        name:"Wireless Earbuds",
+        price:99,
+        image:"https://images.unsplash.com/photo-1583394838336-acd977736f90"
+    },
 
-        const response = await fetch(
-            "https://shopx-backend-ricr.onrender.com"
-        );
-
-        const products =
-            await response.json();
-
-        allProducts = products;
-
-        displayProducts(products);
-
-    }catch(error){
-
-        console.log(error);
-
+    {
+        id:4,
+        name:"Smart Watch",
+        price:199,
+        image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30"
     }
 
-}
+];
 
-function displayProducts(products){
+const productGrid =
+    document.getElementById("productGrid");
 
-    productsContainer.innerHTML = "";
+if(productGrid){
 
-    products.forEach((product)=>{
+    products.forEach(product => {
 
-        productsContainer.innerHTML += `
+        productGrid.innerHTML += `
 
-            <div class="product-card">
+        <div class="product-card">
 
-                <img
-                    src="${product.image}"
-                />
+            <img src="${product.image}">
 
-                <h3>${product.title}</h3>
+            <div class="product-info">
 
-                <p>${product.description}</p>
+                <h3>${product.name}</h3>
 
-                <h2>$${product.price}</h2>
+                <p>$${product.price}</p>
 
-                <button
-                    onclick="addToCart(${product.id})"
-                >
+                <button onclick="addToCart(${product.id})">
                     Add To Cart
                 </button>
 
             </div>
+
+        </div>
 
         `;
 
     });
 
 }
-
-function searchProducts(){
-
-    const searchValue =
-        document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase();
-
-    const filteredProducts =
-        allProducts.filter(product =>
-
-            product.title
-            .toLowerCase()
-            .includes(searchValue)
-
-        );
-
-    displayProducts(filteredProducts);
-
-}
-
-fetchProducts();
-function startVoiceSearch(){
-
-    const recognition =
-        new webkitSpeechRecognition();
-
-    recognition.lang = "en-US";
-
-    recognition.start();
-
-    recognition.onresult = (event)=>{
-
-        const transcript =
-            event.results[0][0].transcript;
-
-        document
-        .getElementById("searchInput")
-        .value = transcript;
-
-        searchProducts();
-
-    };
-
-}
-const loader =
-    document.getElementById("loader");
-
-loader.style.display = "block";
-loader.style.display = "none";

@@ -1,44 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Checkout</title>
 
     <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
 
-    <div class="checkout-page">
+    <div class="auth-page">
 
-        <form class="checkout-form">
+        <div class="auth-box">
 
-            <h1>Checkout</h1>
+            <h2>Checkout</h2>
 
-            <input type="text" placeholder="Full Name" required>
+            <input type="text" placeholder="Full Name">
 
-            <input type="text" placeholder="Address" required>
+            <input type="text" placeholder="Address">
 
-            <input type="text" placeholder="City" required>
+            <input type="text" placeholder="City">
 
-            <input type="text" placeholder="Pincode" required>
-
-            <select>
-
-                <option>Cash On Delivery</option>
-                <option>Razorpay Demo</option>
-                <option>Stripe Demo</option>
-
-            </select>
-
-            <button type="submit">
-                Place Order
+            <button onclick="goToPayment()">
+                Continue
             </button>
 
-        </form>
+        </div>
 
     </div>
+
+    <script src="js/checkout.js"></script>
 
 </body>
 </html>

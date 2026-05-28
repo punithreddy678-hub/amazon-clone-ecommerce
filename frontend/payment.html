@@ -2,69 +2,43 @@
 <html lang="en">
 <head>
 
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Payment</title>
 
-    <link rel="stylesheet"
-          href="css/style.css"/>
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
+
 <body>
 
-<div class="payment-page">
+    <div class="auth-page">
 
-    <h1>Secure Payment</h1>
+        <div class="auth-box">
 
-    <div class="payment-box">
+            <h2>Payment</h2>
 
-        <input
-            type="text"
-            placeholder="Card Holder Name"
-        />
+            <button onclick="makePayment()">
+                Pay With Razorpay
+            </button>
 
-        <input
-            type="text"
-            placeholder="Card Number"
-        />
-
-        <input
-            type="text"
-            placeholder="Expiry"
-        />
-
-        <input
-            type="text"
-            placeholder="CVV"
-        />
-
-        <button onclick="payNow()">
-            Pay Now
-        </button>
+        </div>
 
     </div>
 
-</div>
+    <script>
 
-<script>
+        function makePayment(){
 
-function payNow(){
+            alert("Demo Payment Success");
 
-    alert(
-        "Demo Payment Successful"
-    );
+            window.location.href = "order.html";
 
-    localStorage.removeItem("cart");
+        }
 
-    window.location.href =
-        "index.html";
-
-}
-
-</script>
+    </script>
 
 </body>
 </html>

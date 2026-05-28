@@ -1,46 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Register</title>
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    />
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
-    <div class="auth-container">
+    <div class="auth-page">
 
         <div class="auth-box">
 
-            <h2>Register</h2>
+            <h2>Create Account</h2>
 
-            <input
-                type="text"
-                placeholder="Name"
-            />
+            <input type="text" id="name" placeholder="Name">
 
-            <input
-                type="email"
-                placeholder="Email"
-            />
+            <input type="email" id="email" placeholder="Email">
 
-            <input
-                type="password"
-                placeholder="Password"
-            />
+            <input type="password" id="password" placeholder="Password">
 
-            <button>
+            <button onclick="signupUser()">
                 Register
             </button>
 
         </div>
 
     </div>
+
+    <script src="js/signup.js"></script>
 
 </body>
 </html>
