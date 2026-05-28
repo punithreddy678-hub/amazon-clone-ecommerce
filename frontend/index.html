@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
 
     <meta
         name="viewport"
@@ -51,39 +52,45 @@
 
         </div>
 
-    <div class="nav-icons">
+        <div class="nav-icons">
 
-    <a href="wishlist.html">
-        <i class="fa fa-heart"></i>
-    </a>
+            <a href="wishlist.html">
+                <i class="fa fa-heart"></i>
+            </a>
 
-    <a href="cart.html">
-        <i class="fa fa-shopping-cart"></i>
-    </a>
+            <a href="cart.html">
+                <i class="fa fa-shopping-cart"></i>
+            </a>
 
-    <a href="login.html">
-        <i class="fa fa-user"></i>
-    </a>
-    <a href="admin.html">
-    <button>
-        Admin
-    </button>
-</a>
+            <a href="login.html">
+                <i class="fa fa-user"></i>
+            </a>
 
-    <button onclick="logout()">
-        Logout
-    </button>
+            <a
+                href="admin.html"
+                class="admin-btn"
+            >
+                Admin
+            </a>
 
-</div>
+            <a
+                href="#"
+                class="admin-btn"
+                onclick="logout()"
+            >
+                Logout
+            </a>
+
+        </div>
 
     </nav>
 
+    <!-- LOADER -->
 
-<div id="loader">
-    Loading Products...
-</div>
+    <div id="loader">
+        Loading Products...
+    </div>
 
-<section class="hero">
     <!-- HERO SECTION -->
 
     <section class="hero">
@@ -146,7 +153,9 @@
 
     <section class="products">
 
-        <h2>Trending Products</h2>
+        <h2>
+            Trending Products
+        </h2>
 
         <div
             class="product-grid"
@@ -154,19 +163,6 @@
         >
 
         </div>
-        <div class="search-box">
-
-    <input
-        type="text"
-        id="searchInput"
-        placeholder="Search products..."
-    />
-
-    <button onclick="searchProducts()">
-        Search
-    </button>
-
-</div>
 
     </section>
 
@@ -174,7 +170,9 @@
 
     <div class="chatbot-container">
 
-        <h2>AI Shopping Assistant</h2>
+        <h2>
+            AI Shopping Assistant
+        </h2>
 
         <div id="chatbotMessages">
 
@@ -195,29 +193,30 @@
         </div>
 
     </div>
+
+    <!-- CHAT BUTTON -->
+
     <div class="chatbot">
 
-    <div id="chatbotMessages"></div>
+        <button id="chatBtn">
+            💬
+        </button>
 
-    <input
-        type="text"
-        id="chatInput"
-        placeholder="Ask AI..."
-    />
+    </div>
 
-    <button onclick="sendMessage()">
-        Send
+    <!-- VOICE BUTTON -->
+
+    <button id="voiceBtn">
+        🎤
     </button>
-
-</div>
-
-<script src="js/chatbot.js"></script>
 
     <!-- FOOTER -->
 
     <footer>
 
-        <h3>ShopX E-Commerce</h3>
+        <h3>
+            ShopX E-Commerce
+        </h3>
 
         <p>
             Built using HTML,
@@ -229,11 +228,16 @@
 
     <!-- SCRIPTS -->
 
+    <script src="js/app.js"></script>
+
     <script src="js/cart.js"></script>
 
     <script src="js/products.js"></script>
 
     <script src="js/chatbot.js"></script>
 
+    <script src="js/voice.js"></script>
+
 </body>
+
 </html>
