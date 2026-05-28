@@ -1,53 +1,33 @@
-const chatbotMessages =
-    document.getElementById("chatbotMessages");
-
-function sendMessage(){
+async function sendMessage(){
 
     const input =
-        document.getElementById("chatInput");
+        document.getElementById(
+            "chatInput"
+        );
 
-    const userMessage =
-        input.value;
+    const message = input.value;
 
-    chatbotMessages.innerHTML += `
+    if(message === "") return;
 
-        <div class="user-msg">
-            ${userMessage}
+    const chatbot =
+        document.getElementById(
+            "chatbotMessages"
+        );
+
+    chatbot.innerHTML += `
+        <div>
+            <strong>You:</strong>
+            ${message}
         </div>
-
-    `;
-
-    let botReply = "";
-
-    if(
-        userMessage.includes("mobile")
-    ){
-
-        botReply =
-            "Check latest iPhones and Samsung mobiles.";
-
-    }else if(
-        userMessage.includes("fashion")
-    ){
-
-        botReply =
-            "Trending fashion products available.";
-
-    }else{
-
-        botReply =
-            "How can I help you today?";
-
-    }
-
-    chatbotMessages.innerHTML += `
-
-        <div class="bot-msg">
-            ${botReply}
-        </div>
-
     `;
 
     input.value = "";
+
+    chatbot.innerHTML += `
+        <div>
+            <strong>AI:</strong>
+            This feature will connect with Gemini/OpenAI API.
+        </div>
+    `;
 
 }
