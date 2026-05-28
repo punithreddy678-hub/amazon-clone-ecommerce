@@ -10,7 +10,7 @@
         content="width=device-width, initial-scale=1.0"
     />
 
-    <title>ShopX E-Commerce</title>
+    <title>VELA Audio</title>
 
     <link
         rel="stylesheet"
@@ -31,212 +31,180 @@
     <nav class="navbar">
 
         <div class="logo">
-            <h2>ShopX</h2>
-        </div>
 
-        <div class="search-box">
+            <h1>VELA</h1>
 
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search products..."
-            />
-
-            <button onclick="searchProducts()">
-                <i class="fa fa-search"></i>
-            </button>
-
-            <button onclick="startVoiceSearch()">
-                🎤
-            </button>
+            <span>AUDIO</span>
 
         </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="#">
+                    Products
+                    <i class="fa fa-chevron-down"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    About Us
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Contact Us
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Support
+                </a>
+            </li>
+
+        </ul>
 
         <div class="nav-icons">
 
-            <a href="wishlist.html">
-                <i class="fa fa-heart"></i>
-            </a>
+            <i class="fa fa-search"></i>
 
-            <a href="cart.html">
+            <i class="fa fa-user"></i>
+
+            <div class="cart-icon">
+
                 <i class="fa fa-shopping-cart"></i>
-            </a>
 
-            <a href="login.html">
-                <i class="fa fa-user"></i>
-            </a>
+                <span>0</span>
 
-            <a
-                href="admin.html"
-                class="admin-btn"
-            >
-                Admin
-            </a>
-
-            <a
-                href="#"
-                class="admin-btn"
-                onclick="logout()"
-            >
-                Logout
-            </a>
+            </div>
 
         </div>
 
     </nav>
 
-    <!-- LOADER -->
-
-    <div id="loader">
-        Loading Products...
-    </div>
-
-    <!-- HERO SECTION -->
+    <!-- HERO -->
 
     <section class="hero">
 
         <div class="hero-content">
 
             <h1>
-                Biggest Sale of the Year
+                EXPERIENCE PURE SOUND.<br />
+                EVERYWHERE.
             </h1>
 
             <p>
-                Electronics, Fashion,
-                Mobiles, Grocery,
-                Books & More
+                Explore the new Lunar Series and more.
             </p>
 
             <button>
-                Shop Now
+                SHOP LUNAR SERIES
             </button>
 
         </div>
 
     </section>
 
-    <!-- CATEGORIES -->
+    <!-- FEATURE SECTION -->
 
-    <section class="categories">
+    <section class="features-section">
 
-        <div class="category-card">
-            Electronics
-        </div>
+        <!-- PRODUCTS -->
 
-        <div class="category-card">
-            Fashion
-        </div>
+        <div class="featured-products">
 
-        <div class="category-card">
-            Mobiles
-        </div>
+            <h2>FEATURED PRODUCTS</h2>
 
-        <div class="category-card">
-            Grocery
-        </div>
+            <div class="products-grid">
 
-        <div class="category-card">
-            Books
-        </div>
+                <div class="product-card">
 
-        <div class="category-card">
-            Beauty
-        </div>
+                    <img
+                        src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+                        alt=""
+                    />
 
-        <div class="category-card">
-            Sports
-        </div>
+                    <h3>Lunar ANC Headphone</h3>
 
-    </section>
+                    <p>$299.00</p>
 
-    <!-- PRODUCTS -->
+                </div>
 
-    <section class="products">
+                <div class="product-card">
 
-        <h2>
-            Trending Products
-        </h2>
+                    <img
+                        src="https://images.unsplash.com/photo-1545454675-3531b543be5d"
+                        alt=""
+                    />
 
-        <div
-            class="product-grid"
-            id="products"
-        >
+                    <h3>Bluetooth Speaker</h3>
 
-        </div>
+                    <p>$150.00</p>
 
-    </section>
+                </div>
 
-    <!-- AI CHATBOT -->
+                <div class="product-card">
 
-    <div class="chatbot-container">
+                    <img
+                        src="https://images.unsplash.com/photo-1588423771073-b8903fbb85b5"
+                        alt=""
+                    />
 
-        <h2>
-            AI Shopping Assistant
-        </h2>
+                    <h3>Earpads</h3>
 
-        <div id="chatbotMessages">
+                    <p>$29.00</p>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="chat-input-box">
+        <!-- STORY -->
+
+        <div class="story-card">
+
+            <i class="fa fa-user-circle"></i>
+
+            <h3>OUR STORY</h3>
+
+            <p>
+                Join our story of signal and headphones
+                immersive sound and our supreme pairs
+                with unbeatable quality.
+            </p>
+
+            <a href="#">
+                Learn more »
+            </a>
+
+        </div>
+
+        <!-- NEWSLETTER -->
+
+        <div class="newsletter-card">
+
+            <i class="fa fa-envelope"></i>
+
+            <h3>JOIN OUR NEWSLETTER</h3>
+
+            <p>Email address</p>
 
             <input
-                type="text"
-                id="chatInput"
-                placeholder="Ask AI..."
+                type="email"
+                placeholder="Email address"
             />
 
-            <button onclick="sendMessage()">
-                Send
+            <button>
+                Subscribe
             </button>
 
         </div>
 
-    </div>
-
-    <!-- CHAT BUTTON -->
-
-    <div class="chatbot">
-
-        <button id="chatBtn">
-            💬
-        </button>
-
-    </div>
-
-    <!-- VOICE BUTTON -->
-
-    <button id="voiceBtn">
-        🎤
-    </button>
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <h3>
-            ShopX E-Commerce
-        </h3>
-
-        <p>
-            Built using HTML,
-            CSS, JavaScript,
-            Node.js & MySQL
-        </p>
-
-    </footer>
-
-    <!-- SCRIPTS -->
-
-    <script src="js/app.js"></script>
-
-    <script src="js/cart.js"></script>
-
-    <script src="js/products.js"></script>
-
-    <script src="js/chatbot.js"></script>
-
-    <script src="js/voice.js"></script>
+    </section>
 
 </body>
 
