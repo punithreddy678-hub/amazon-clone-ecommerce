@@ -26,6 +26,13 @@ const products = [
         name:"Smart Watch",
         price:199,
         image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+    },
+
+    {
+        id:5,
+        name:"Gaming Headset",
+        price:249,
+        image:"https://images.unsplash.com/photo-1599669454699-248893623440"
     }
 
 ];
@@ -33,9 +40,13 @@ const products = [
 const productGrid =
     document.getElementById("productGrid");
 
-if(productGrid){
+function displayProducts(items){
 
-    products.forEach(product => {
+    if(!productGrid) return;
+
+    productGrid.innerHTML = "";
+
+    items.forEach(product => {
 
         productGrid.innerHTML += `
 
@@ -60,5 +71,31 @@ if(productGrid){
         `;
 
     });
+
+}
+
+/* INITIAL LOAD */
+
+displayProducts(products);
+
+/* SEARCH FUNCTION */
+
+function searchProducts(){
+
+    const searchInput =
+        document.getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    const filteredProducts =
+        products.filter(product =>
+
+            product.name
+            .toLowerCase()
+            .includes(searchInput)
+
+        );
+
+    displayProducts(filteredProducts);
 
 }

@@ -12,10 +12,14 @@
 
     <title>VELA AUDIO</title>
 
+    <!-- CSS -->
+
     <link
         rel="stylesheet"
         href="css/style.css"
     >
+
+    <!-- FONT AWESOME -->
 
     <link
         rel="stylesheet"
@@ -30,57 +34,123 @@
 
     <nav class="navbar">
 
+        <!-- LOGO -->
+
         <div class="logo">
+
             <h1>VELA</h1>
+
             <span>AUDIO</span>
+
         </div>
+
+        <!-- NAV LINKS -->
 
         <div class="nav-links">
 
-            <a href="#products">Products</a>
+            <a href="#home">
+                Home
+            </a>
 
-            <a href="#about">About Us</a>
+            <a href="#products">
+                Products
+            </a>
 
-            <a href="#contact">Contact Us</a>
+            <a href="#about">
+                About
+            </a>
 
-            <a href="#support">Support</a>
+            <a href="#support">
+                Support
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
 
         </div>
 
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+            >
+
+            <button onclick="searchProducts()">
+
+                <i class="fa fa-search"></i>
+
+            </button>
+
+        </div>
+
+        <!-- ICONS -->
+
         <div class="nav-icons">
 
-            <i class="fa fa-search"></i>
+            <a href="wishlist.html">
 
-            <a href="login.html">
-                <i class="fa fa-user"></i>
+                <i class="fa fa-heart"></i>
+
             </a>
 
             <a href="cart.html">
-                <i class="fa fa-cart-shopping"></i>
+
+                <i class="fa fa-shopping-cart"></i>
+
+            </a>
+
+            <a href="login.html">
+
+                <i class="fa fa-user"></i>
+
+            </a>
+
+            <a href="admin.html">
+
+                <i class="fa fa-chart-line"></i>
+
             </a>
 
         </div>
 
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
 
-    <section class="hero">
+    <section
+        class="hero"
+        id="home"
+    >
 
         <div class="hero-content">
 
             <h1>
-                EXPERIENCE PURE SOUND.
+
+                EXPERIENCE
                 <br>
-                EVERYWHERE.
+                PREMIUM SOUND
+
             </h1>
 
             <p>
-                Explore the new Lunar Series and more.
+
+                Headphones,
+                Earbuds,
+                Smart Watches,
+                Speakers &
+                Gaming Accessories
+
             </p>
 
             <button>
-                SHOP LUNAR SERIES
+
+                SHOP NOW
+
             </button>
 
         </div>
@@ -95,7 +165,9 @@
     >
 
         <h2 class="section-title">
+
             Featured Products
+
         </h2>
 
         <div
@@ -114,55 +186,30 @@
         id="about"
     >
 
-        <h2>About Us</h2>
+        <h2>
+
+            About VELA AUDIO
+
+        </h2>
 
         <p>
 
-            VELA AUDIO creates premium headphones,
-            earbuds, smart watches, speakers,
-            gaming accessories and modern lifestyle
-            technology for music lovers.
+            VELA AUDIO delivers
+            premium sound products
+            built for modern music lovers.
 
-            Our mission is to deliver immersive
-            sound experiences with premium design
-            and performance.
+            Our collection includes
+            wireless headphones,
+            smart wearables,
+            gaming accessories,
+            premium speakers
+            and next-generation audio devices.
+
+            We focus on elegant design,
+            immersive sound quality,
+            and cutting-edge technology.
 
         </p>
-
-    </section>
-
-    <!-- CONTACT -->
-
-    <section
-        class="contact"
-        id="contact"
-    >
-
-        <h2>Contact Us</h2>
-
-        <div class="contact-container">
-
-            <div class="contact-box">
-
-                <h3>Email</h3>
-
-                <p>
-                    support@velaaudio.com
-                </p>
-
-            </div>
-
-            <div class="contact-box">
-
-                <h3>Phone</h3>
-
-                <p>
-                    +91 9876543210
-                </p>
-
-            </div>
-
-        </div>
 
     </section>
 
@@ -174,37 +221,57 @@
     >
 
         <h2 class="section-title">
-            Support
+
+            Customer Support
+
         </h2>
 
         <div class="support-grid">
 
             <div class="support-card">
 
-                <h3>Shipping</h3>
+                <h3>
+
+                    Free Shipping
+
+                </h3>
 
                 <p>
-                    Fast worldwide shipping.
+
+                    Fast delivery across India.
+
                 </p>
 
             </div>
 
             <div class="support-card">
 
-                <h3>Warranty</h3>
+                <h3>
+
+                    24/7 Support
+
+                </h3>
 
                 <p>
+
+                    Always available for help.
+
+                </p>
+
+            </div>
+
+            <div class="support-card">
+
+                <h3>
+
+                    Warranty
+
+                </h3>
+
+                <p>
+
                     1 year premium warranty.
-                </p>
 
-            </div>
-
-            <div class="support-card">
-
-                <h3>24/7 Support</h3>
-
-                <p>
-                    We are always available.
                 </p>
 
             </div>
@@ -213,18 +280,113 @@
 
     </section>
 
+    <!-- CONTACT -->
+
+    <section
+        class="contact"
+        id="contact"
+    >
+
+        <h2>
+
+            Contact Us
+
+        </h2>
+
+        <div class="contact-container">
+
+            <div class="contact-box">
+
+                <h3>
+
+                    Email
+
+                </h3>
+
+                <p>
+
+                    support@velaaudio.com
+
+                </p>
+
+            </div>
+
+            <div class="contact-box">
+
+                <h3>
+
+                    Phone
+
+                </h3>
+
+                <p>
+
+                    +91 9876543210
+
+                </p>
+
+            </div>
+
+            <div class="contact-box">
+
+                <h3>
+
+                    Address
+
+                </h3>
+
+                <p>
+
+                    Hyderabad, India
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CHATBOT -->
+
+    <div class="chatbot">
+
+        <button id="chatBtn">
+
+            💬
+
+        </button>
+
+    </div>
+
+    <!-- VOICE SEARCH -->
+
+    <button id="voiceBtn">
+
+        🎤
+
+    </button>
+
     <!-- FOOTER -->
 
     <footer>
 
         <div class="footer-container">
 
+            <!-- BRAND -->
+
             <div>
 
-                <h2>VELA AUDIO</h2>
+                <h2>
+
+                    VELA AUDIO
+
+                </h2>
 
                 <p>
+
                     Premium Audio Experience
+
                 </p>
 
                 <div class="social-icons">
@@ -241,12 +403,22 @@
 
             </div>
 
+            <!-- PRODUCTS -->
+
             <div>
 
-                <h3>Products</h3>
+                <h3>
+
+                    Products
+
+                </h3>
 
                 <a href="#">
                     Headphones
+                </a>
+
+                <a href="#">
+                    Earbuds
                 </a>
 
                 <a href="#">
@@ -254,35 +426,55 @@
                 </a>
 
                 <a href="#">
-                    Earbuds
+                    Smart Watches
                 </a>
 
             </div>
 
+            <!-- SUPPORT -->
+
             <div>
 
-                <h3>Support</h3>
+                <h3>
 
-                <a href="#">
-                    Contact
-                </a>
+                    Support
+
+                </h3>
 
                 <a href="#">
                     Help Center
                 </a>
 
+                <a href="#">
+                    Warranty
+                </a>
+
+                <a href="#">
+                    Shipping
+                </a>
+
             </div>
+
+            <!-- COMPANY -->
 
             <div>
 
-                <h3>Company</h3>
+                <h3>
+
+                    Company
+
+                </h3>
 
                 <a href="#">
-                    About
+                    About Us
                 </a>
 
                 <a href="#">
                     Careers
+                </a>
+
+                <a href="#">
+                    Privacy Policy
                 </a>
 
             </div>
@@ -291,9 +483,15 @@
 
     </footer>
 
+    <!-- SCRIPTS -->
+
     <script src="js/products.js"></script>
 
     <script src="js/cart.js"></script>
+
+    <script src="js/chatbot.js"></script>
+
+    <script src="js/voice.js"></script>
 
     <script src="js/app.js"></script>
 
