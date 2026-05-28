@@ -89,3 +89,41 @@ function addToCart(product){
     console.log(cart);
 
 }
+function logout(){
+
+    localStorage.removeItem("token");
+
+    alert("Logged Out");
+
+    window.location.href =
+        "login.html";
+
+}
+function showToast(message){
+
+    const toast =
+        document.createElement("div");
+
+    toast.classList.add("toast");
+
+    toast.innerHTML = message;
+
+    document.body.appendChild(toast);
+
+    setTimeout(()=>{
+
+        toast.remove();
+
+    },3000);
+
+}
+function logout(){
+
+    localStorage.removeItem("token");
+
+    alert("Logged Out");
+
+    window.location.href =
+        "login.html";
+
+}

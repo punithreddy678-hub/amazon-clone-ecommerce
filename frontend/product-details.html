@@ -1,56 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Product Details</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
 <body>
 
-    <div class="product-details-page">
+    <div class="product-details">
 
-        <div class="product-details-container">
+        <img
+            id="productImage"
+            width="300"
+        >
 
-            <div class="product-image">
+        <div>
 
-                <img
-                    src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
-                    alt=""
-                />
+            <h1 id="productName"></h1>
 
-            </div>
+            <h2 id="productPrice"></h2>
 
-            <div class="product-info">
+            <p id="productDescription"></p>
 
-                <h1>iPhone 15 Pro Max</h1>
-
-                <div class="rating">
-                    ⭐⭐⭐⭐⭐
-                </div>
-
-                <h2>$999</h2>
-
-                <p>
-                    Premium smartphone with advanced camera,
-                    fast processor and stunning display.
-                </p>
-
-                <div class="buttons">
-
-                    <button class="cart-btn">
-                        Add To Cart
-                    </button>
-
-                    <button class="wish-btn">
-                        Add To Wishlist
-                    </button>
-
-                </div>
-
-            </div>
+            <button onclick="addWishlist()">
+                Add To Wishlist
+            </button>
 
         </div>
 
@@ -58,35 +46,37 @@
 
     <!-- REVIEWS -->
 
-    <section class="reviews-section">
+    <div class="reviews-section">
 
-        <h2>Customer Reviews</h2>
+        <h2>Product Reviews</h2>
 
-        <div class="review-card">
+        <form id="reviewForm">
 
-            <h3>Rahul</h3>
+            <input
+                type="text"
+                id="username"
+                placeholder="Your Name"
+            >
 
-            <div>⭐⭐⭐⭐⭐</div>
+            <textarea
+                id="review"
+                placeholder="Write Review"
+            ></textarea>
 
-            <p>
-                Amazing product and fast delivery.
-            </p>
+            <button type="submit">
+                Add Review
+            </button>
 
-        </div>
+        </form>
 
-        <div class="review-card">
+        <div id="reviewList"></div>
 
-            <h3>Priya</h3>
+    </div>
 
-            <div>⭐⭐⭐⭐☆</div>
+    <script src="js/product-details.js"></script>
 
-            <p>
-                Camera quality is excellent.
-            </p>
+    <script src="js/review.js"></script>
 
-        </div>
-
-    </section>
-<script src="js/review.js"></script>
 </body>
+
 </html>

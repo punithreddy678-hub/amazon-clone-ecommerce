@@ -518,3 +518,49 @@ body{
     border-radius: 12px;
 
 }
+@media(max-width:768px){
+
+    .navbar{
+
+        flex-direction: column;
+
+        gap: 20px;
+
+    }
+
+    .search-box{
+
+        width: 100%;
+
+    }
+
+    .product-grid{
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .categories{
+
+        flex-wrap: wrap;
+
+    }
+
+}
+.toast{
+
+    position: fixed;
+
+    top: 20px;
+
+    right: 20px;
+
+    background: black;
+
+    color: white;
+
+    padding: 15px;
+
+    border-radius: 8px;
+
+}

@@ -105,3 +105,8 @@ function startVoiceSearch(){
     };
 
 }
+const loader =
+    document.getElementById("loader");
+
+loader.style.display = "block";
+loader.style.display = "none";
