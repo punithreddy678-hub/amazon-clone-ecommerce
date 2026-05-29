@@ -1,64 +1,73 @@
-const products = [
+const allProducts = [
 
-    {
-        id:1,
-        name:"Lunar ANC Headphone",
-        price:299,
-        image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
-    },
+{
+    id:1,
+    name:"Sony WH-1000XM5",
+    category:"Headphones",
+    price:"₹29,999",
 
-    {
-        id:2,
-        name:"Bluetooth Speaker",
-        price:150,
-        image:"https://images.unsplash.com/photo-1545454675-3531b543be5d"
-    },
+    image:
+    "https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+},
 
-    {
-        id:3,
-        name:"Wireless Earbuds",
-        price:99,
-        image:"https://images.unsplash.com/photo-1583394838336-acd977736f90"
-    },
+{
+    id:2,
+    name:"JBL Flip 6",
+    category:"Speakers",
+    price:"₹8,999",
 
-    {
-        id:4,
-        name:"Smart Watch",
-        price:199,
-        image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30"
-    },
+    image:
+    "https://images.unsplash.com/photo-1545454675-3531b543be5d"
+},
 
-    {
-        id:5,
-        name:"Gaming Headset",
-        price:249,
-        image:"https://images.unsplash.com/photo-1599669454699-248893623440"
-    }
+{
+    id:3,
+    name:"Apple AirPods Pro",
+    category:"Earbuds",
+    price:"₹24,999",
+
+    image:
+    "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46"
+},
+
+{
+    id:4,
+    name:"Apple Watch Ultra",
+    category:"Smart Watches",
+    price:"₹89,999",
+
+    image:
+    "https://images.unsplash.com/photo-1546868871-7041f2a55e12"
+}
 
 ];
 
-const productGrid =
-    document.getElementById("productGrid");
+const productsContainer =
+document.getElementById("products");
 
 function displayProducts(items){
 
-    if(!productGrid) return;
+    if(!productsContainer) return;
 
-    productGrid.innerHTML = "";
+    productsContainer.innerHTML = "";
 
-    items.forEach(product => {
+    items.forEach(product=>{
 
-        productGrid.innerHTML += `
+        productsContainer.innerHTML += `
 
         <div class="product-card">
 
-            <img src="${product.image}">
+            <img src="${product.image}" />
 
             <div class="product-info">
 
                 <h3>${product.name}</h3>
 
-                <p>$${product.price}</p>
+                <p>${product.category}</p>
+
+                <div class="price">
+                    ${product.price}
+                </div>
 
                 <button onclick="addToCart(${product.id})">
                     Add To Cart
@@ -69,138 +78,7 @@ function displayProducts(items){
         </div>
 
         `;
-
-    });
-
-}
-
-/* INITIAL LOAD */
-
-displayProducts(products);
-
-/* SEARCH FUNCTION */
-
-function searchProducts(){
-
-    const searchInput =
-        document.getElementById("searchInput")
-        .value
-        .toLowerCase();
-
-    const filteredProducts =
-        products.filter(product =>
-
-            product.name
-            .toLowerCase()
-            .includes(searchInput)
-
-        );
-
-    displayProducts(filteredProducts);
-
-}
-const products = [
-    "VELA Lunar ANC",
-    "VELA Boom Speaker",
-    "VELA AirBuds Pro",
-    "VELA Smart Watch X",
-    "VELA Gaming Headset",
-    "VELA Audio Cable Kit"
-];
-
-function showSuggestions() {
-
-    const input =
-        document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase();
-
-    const suggestionsBox =
-        document.getElementById("suggestionsBox");
-
-    suggestionsBox.innerHTML = "";
-
-    if(input === "") {
-        suggestionsBox.style.display = "none";
-        return;
-    }
-
-    const filteredProducts =
-        products.filter(product =>
-            product.toLowerCase().includes(input)
-        );
-
-    filteredProducts.forEach(product => {
-
-        const div = document.createElement("div");
-
-        div.classList.add("suggestion-item");
-
-        div.innerText = product;
-
-        div.onclick = () => {
-
-            document.getElementById("searchInput").value = product;
-
-            suggestionsBox.style.display = "none";
-
-            searchProducts();
-        };
-
-        suggestionsBox.appendChild(div);
-    });
-
-    suggestionsBox.style.display =
-        filteredProducts.length ? "block" : "none";
-}
-
-function searchProducts() {
-
-    const input =
-        document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase();
-
-    const cards =
-        document.querySelectorAll(".product-card");
-
-    cards.forEach(card => {
-
-        const title =
-            card.querySelector("h3")
-            .innerText
-            .toLowerCase();
-
-        if(title.includes(input)) {
-            card.style.display = "block";
-        }
-        else{
-            card.style.display = "none";
-        }
     });
 }
-function filterCategory(category){
 
-    const cards =
-        document.querySelectorAll(".product-card");
-
-    cards.forEach(card => {
-
-        if(
-            card.dataset.category === category
-        ){
-            card.style.display = "block";
-        }
-        else{
-            card.style.display = "none";
-        }
-
-    });
-
-    window.scrollTo({
-        top:700,
-        behavior:"smooth"
-    });
-}
+displayProducts(allProducts);

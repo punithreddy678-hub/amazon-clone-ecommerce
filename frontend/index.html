@@ -375,52 +375,48 @@
 <!-- AI BUTTON -->
 
 <div
-    class="ai-toggle"
-    onclick="toggleChatbot()"
+class="ai-toggle"
+onclick="toggleChatbot()"
 >
-
-    🤖
-
+🤖
 </div>
 
-<!-- GEMINI CHATBOT -->
+<!-- AI CHAT -->
 
 <div
-    class="ai-chatbot"
-    id="aiChatbot"
+class="ai-chatbot"
+id="aiChatbot"
 >
 
-    <div class="chat-header">
+<div class="chat-header">
 
-        <h2>
-            Gemini AI
-        </h2>
+<h2>ShopX AI</h2>
 
-        <span onclick="toggleChatbot()">
-            ✖
-        </span>
-
-    </div>
-
-    <div id="chatbotMessages">
-
-    </div>
-
-    <div class="chat-input">
-
-        <input
-            type="text"
-            id="chatInput"
-            placeholder="Ask anything..."
-        >
-
-        <button onclick="sendMessage()">
-            Send
-        </button>
-
-    </div>
+<span onclick="toggleChatbot()">
+✖
+</span>
 
 </div>
+
+<div id="chatbotMessages"></div>
+
+<div class="chat-input">
+
+<input
+type="text"
+id="chatInput"
+placeholder="Ask AI..."
+>
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+</div>
+
+
 
     <!-- JS -->
 

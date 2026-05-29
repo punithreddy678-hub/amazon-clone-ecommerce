@@ -1,18 +1,24 @@
-const chatbot =
+const aiChatbot =
 document.getElementById("aiChatbot");
 
 function toggleChatbot(){
 
-    chatbot.classList.toggle("show-chat");
+    aiChatbot.classList.toggle(
+        "show-chat"
+    );
 }
 
 async function sendMessage(){
 
     const input =
-    document.getElementById("chatInput");
+    document.getElementById(
+        "chatInput"
+    );
 
     const messages =
-    document.getElementById("chatbotMessages");
+    document.getElementById(
+        "chatbotMessages"
+    );
 
     const userMessage =
     input.value.trim();
@@ -31,20 +37,21 @@ async function sendMessage(){
 
     try{
 
-        const response = await fetch(
-            "https://shopx-backend-ricr.onrender.com",
-            {
-                method:"POST",
+        const response =
+        await fetch(
+        "https://shopx-backend-ricr.onrender.com/api/chatbot",
+        {
+            method:"POST",
 
-                headers:{
-                    "Content-Type":"application/json"
-                },
+            headers:{
+                "Content-Type":
+                "application/json"
+            },
 
-                body:JSON.stringify({
-                    message:userMessage
-                })
-            }
-        );
+            body:JSON.stringify({
+                message:userMessage
+            })
+        });
 
         const data =
         await response.json();
@@ -65,7 +72,7 @@ async function sendMessage(){
         messages.innerHTML += `
 
             <div class="bot-message">
-                AI server error
+                AI Error
             </div>
 
         `;
