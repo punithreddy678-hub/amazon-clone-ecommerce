@@ -54,19 +54,19 @@ Home
 </li>
 
 <li>
-<a href="#">
+<a href="products.html">
 Products
 </a>
 </li>
 
 <li>
-<a href="#">
+<a href="#about">
 About
 </a>
 </li>
 
 <li>
-<a href="#">
+<a href="#contact">
 Contact
 </a>
 </li>
@@ -82,7 +82,7 @@ placeholder="Search products..."
 onkeyup="searchProducts()"
 />
 
-<button>
+<button onclick="searchProducts()">
 <i class="fa fa-search"></i>
 </button>
 
@@ -124,7 +124,7 @@ id="suggestionsBox"
 <h1>
 
 EXPLORE<br>
-AUDIO Gaming
+AUDIO GAMING
 
 </h1>
 
@@ -135,8 +135,12 @@ Gaming & Smart Tech
 
 </p>
 
-<button onclick="window.location.href='products.html'">
+<button
+onclick="window.location.href='products.html'"
+>
+
 Shop Now
+
 </button>
 
 </div>
@@ -151,7 +155,7 @@ Shop Now
 
 <div
 class="category-card"
-onclick="filterCategory('Headphones')"
+onclick="window.location.href='products.html'"
 >
 
 <i class="fa fa-headphones"></i>
@@ -162,7 +166,7 @@ onclick="filterCategory('Headphones')"
 
 <div
 class="category-card"
-onclick="filterCategory('Speakers')"
+onclick="window.location.href='products.html'"
 >
 
 <i class="fa fa-volume-high"></i>
@@ -173,7 +177,7 @@ onclick="filterCategory('Speakers')"
 
 <div
 class="category-card"
-onclick="filterCategory('Earbuds')"
+onclick="window.location.href='products.html'"
 >
 
 <i class="fa fa-ear-listen"></i>
@@ -184,7 +188,7 @@ onclick="filterCategory('Earbuds')"
 
 <div
 class="category-card"
-onclick="filterCategory('Smart Watches')"
+onclick="window.location.href='products.html'"
 >
 
 <i class="fa fa-clock"></i>
@@ -195,7 +199,7 @@ onclick="filterCategory('Smart Watches')"
 
 <div
 class="category-card"
-onclick="filterCategory('Gaming')"
+onclick="window.location.href='products.html'"
 >
 
 <i class="fa fa-gamepad"></i>
@@ -206,10 +210,10 @@ onclick="filterCategory('Gaming')"
 
 <div
 class="category-card"
-onclick="filterCategory('Accessories')"
+onclick="window.location.href='products.html'"
 >
 
-<i class="fa fa-mobile"></i>
+<i class="fa fa-keyboard"></i>
 
 <h3>Accessories</h3>
 
@@ -218,7 +222,7 @@ onclick="filterCategory('Accessories')"
 </section>
 
 <!-- =========================
-     PRODUCTS
+     TRENDING PRODUCTS
 ========================= -->
 
 <section class="products">
@@ -229,18 +233,347 @@ Trending Products
 
 </h2>
 
+<div class="product-grid">
+
+<!-- PRODUCT 1 -->
+
+<div class="product-card">
+
+<div class="discount-badge">
+
+SALE
+
+</div>
+
 <div
-class="product-grid"
-id="products"
-></div>
+class="wishlist-icon"
+onclick="addToWishlist(1)"
+>
+
+<i class="fa fa-heart"></i>
+
+</div>
+
+<img
+src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200"
+>
+
+<div class="product-info">
+
+<h3>
+
+Premium Headphones
+
+</h3>
+
+<div class="stars">
+
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+
+</div>
+
+<p>
+
+Wireless noise cancellation headphones
+
+</p>
+
+<div class="price-row">
+
+<div class="price">
+
+₹4,999
+
+</div>
+
+<div class="old-price">
+
+₹6,999
+
+</div>
+
+</div>
+
+<button onclick="goProducts()">
+
+Add To Cart
+
+</button>
+
+<button
+class="details-btn"
+onclick="goProducts()"
+>
+
+View Details
+
+</button>
+
+</div>
+
+</div>
+
+<!-- PRODUCT 2 -->
+
+<div class="product-card">
+
+<div class="discount-badge">
+
+HOT
+
+</div>
+
+<div
+class="wishlist-icon"
+onclick="addToWishlist(2)"
+>
+
+<i class="fa fa-heart"></i>
+
+</div>
+
+<img
+src="https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=1200"
+>
+
+<div class="product-info">
+
+<h3>
+
+Bluetooth Speaker
+
+</h3>
+
+<div class="stars">
+
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+
+</div>
+
+<p>
+
+Portable deep bass speaker
+
+</p>
+
+<div class="price-row">
+
+<div class="price">
+
+₹2,499
+
+</div>
+
+<div class="old-price">
+
+₹3,999
+
+</div>
+
+</div>
+
+<button onclick="goProducts()">
+
+Add To Cart
+
+</button>
+
+<button
+class="details-btn"
+onclick="goProducts()"
+>
+
+View Details
+
+</button>
+
+</div>
+
+</div>
+
+<!-- PRODUCT 3 -->
+
+<div class="product-card">
+
+<div class="discount-badge">
+
+NEW
+
+</div>
+
+<div
+class="wishlist-icon"
+onclick="addToWishlist(3)"
+>
+
+<i class="fa fa-heart"></i>
+
+</div>
+
+<img
+src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f37?q=80&w=1200"
+>
+
+<div class="product-info">
+
+<h3>
+
+Wireless Earbuds
+
+</h3>
+
+<div class="stars">
+
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+
+</div>
+
+<p>
+
+Premium audio earbuds
+
+</p>
+
+<div class="price-row">
+
+<div class="price">
+
+₹2,999
+
+</div>
+
+<div class="old-price">
+
+₹4,499
+
+</div>
+
+</div>
+
+<button onclick="goProducts()">
+
+Add To Cart
+
+</button>
+
+<button
+class="details-btn"
+onclick="goProducts()"
+>
+
+View Details
+
+</button>
+
+</div>
+
+</div>
+
+<!-- PRODUCT 4 -->
+
+<div class="product-card">
+
+<div class="discount-badge">
+
+TOP
+
+</div>
+
+<div
+class="wishlist-icon"
+onclick="addToWishlist(4)"
+>
+
+<i class="fa fa-heart"></i>
+
+</div>
+
+<img
+src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200"
+>
+
+<div class="product-info">
+
+<h3>
+
+Smart Watch
+
+</h3>
+
+<div class="stars">
+
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+
+</div>
+
+<p>
+
+Fitness tracking smartwatch
+
+</p>
+
+<div class="price-row">
+
+<div class="price">
+
+₹5,499
+
+</div>
+
+<div class="old-price">
+
+₹7,999
+
+</div>
+
+</div>
+
+<button onclick="goProducts()">
+
+Add To Cart
+
+</button>
+
+<button
+class="details-btn"
+onclick="goProducts()"
+>
+
+View Details
+
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 <!-- =========================
-     INFO SECTION
+     ABOUT
 ========================= -->
 
-<section class="info-section">
+<section
+class="info-section"
+id="about"
+>
 
 <div class="info-box">
 
@@ -272,7 +605,10 @@ secure payments.
 
 </div>
 
-<div class="info-box">
+<div
+class="info-box"
+id="contact"
+>
 
 <h2>Contact</h2>
 
@@ -301,7 +637,7 @@ class="ai-toggle"
 onclick="toggleChatbot()"
 >
 
-🤖
+<i class="fa fa-robot"></i>
 
 </div>
 
@@ -316,7 +652,11 @@ id="aiChatbot"
 
 <div class="chat-header">
 
-<h2>VELA AI</h2>
+<h2>
+
+VELA AI
+
+</h2>
 
 <span onclick="toggleChatbot()">
 
@@ -336,9 +676,7 @@ id="chatInput"
 placeholder="Ask AI..."
 >
 
-<button
-onclick="sendMessage()"
->
+<button onclick="sendMessage()">
 
 Send
 
@@ -356,7 +694,11 @@ Send
 
 <div class="footer-content">
 
-<h2>VELA AUDIO</h2>
+<h2>
+
+VELA AUDIO
+
+</h2>
 
 <p>
 
@@ -381,18 +723,179 @@ Premium Sound Experience
 </footer>
 
 <!-- =========================
-     SCRIPTS
+     SCRIPT
 ========================= -->
 
-<script src="js/products.js"></script>
+<script>
 
-<script src="js/cart.js"></script>
+function goProducts(){
 
-<script src="js/chatbot.js"></script>
+window.location.href =
+"products.html";
 
-<script src="js/voice.js"></script>
+}
 
-<script src="js/app.js"></script>
+/* SEARCH */
+
+const dummyProducts = [
+
+"Premium Headphones",
+"Bluetooth Speaker",
+"Wireless Earbuds",
+"Gaming Headset",
+"Smart Watch",
+"Mechanical Keyboard"
+
+];
+
+function searchProducts(){
+
+const input =
+document.getElementById(
+"searchInput"
+).value.toLowerCase();
+
+const suggestionsBox =
+document.getElementById(
+"suggestionsBox"
+);
+
+suggestionsBox.innerHTML = "";
+
+if(input===""){
+
+suggestionsBox.style.display =
+"none";
+
+return;
+
+}
+
+const filtered =
+dummyProducts.filter(product=>
+
+product.toLowerCase().includes(input)
+
+);
+
+filtered.forEach(product=>{
+
+suggestionsBox.innerHTML += `
+
+<div
+class="suggestion-item"
+onclick="window.location.href='products.html'"
+>
+
+${product}
+
+</div>
+
+`;
+
+});
+
+suggestionsBox.style.display =
+"block";
+
+}
+
+/* CHATBOT */
+
+function toggleChatbot(){
+
+document
+.getElementById("aiChatbot")
+.classList.toggle("show-chat");
+
+}
+
+async function sendMessage(){
+
+const input =
+document.getElementById(
+"chatInput"
+);
+
+const message =
+input.value;
+
+if(message==="") return;
+
+const chat =
+document.getElementById(
+"chatbotMessages"
+);
+
+chat.innerHTML += `
+
+<div class="user-message">
+
+${message}
+
+</div>
+
+`;
+
+input.value = "";
+
+try{
+
+const response =
+await fetch(
+"https://shopx-backend-ricr.onrender.com/api/chatbot",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+message
+})
+}
+);
+
+const data =
+await response.json();
+
+chat.innerHTML += `
+
+<div class="bot-message">
+
+${data.reply}
+
+</div>
+
+`;
+
+chat.scrollTop =
+chat.scrollHeight;
+
+}catch(error){
+
+chat.innerHTML += `
+
+<div class="bot-message">
+
+AI Server Error
+
+</div>
+
+`;
+
+}
+
+}
+
+function addToWishlist(){
+
+alert(
+"Open products page to use wishlist"
+);
+
+}
+
+</script>
 
 </body>
 </html>
