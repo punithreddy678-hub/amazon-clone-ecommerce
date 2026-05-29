@@ -13,19 +13,27 @@ JSON.parse(
 localStorage.getItem("cart")
 ) || [];
 
-if(cart.length===0){
+/* =========================================
+   EMPTY CART
+========================================= */
+
+if(cart.length === 0){
 
 cartContainer.innerHTML = `
 
 <h2>
 
-Cart Empty
+Cart Empty 🛒
 
 </h2>
 
 `;
 
 }
+
+/* =========================================
+   DISPLAY CART
+========================================= */
 
 let total = 0;
 
@@ -37,43 +45,49 @@ cartContainer.innerHTML += `
 
 <div class="cart-item">
 
-<img src="${product.image}">
+    <img src="${product.image}">
 
-<div>
+    <div>
 
-<h2>
+        <h2>
 
-${product.name}
+            ${product.name}
 
-</h2>
+        </h2>
 
-<p>
+        <p>
 
-Premium Audio Product
+            Premium Audio Product
 
-</p>
+        </p>
 
-<h3>
+        <h3>
 
-₹${product.price}
+            ₹${product.price}
 
-</h3>
+        </h3>
 
-<button
-onclick="removeCart(${product.id})"
->
+        <button
+        onclick="removeCart(${product.id})"
+        >
 
-Remove
+            Remove
 
-</button>
+        </button>
 
-</div>
+    </div>
 
 </div>
 
 `;
 
 });
+
+/* =========================================
+   TOTAL
+========================================= */
+
+if(cart.length > 0){
 
 cartTotal.innerHTML = `
 
@@ -94,7 +108,11 @@ Proceed To Checkout
 
 `;
 
-/* REMOVE */
+}
+
+/* =========================================
+   REMOVE ITEM
+========================================= */
 
 function removeCart(id){
 
@@ -112,11 +130,98 @@ location.reload();
 
 }
 
-/* CHECKOUT */
+/* =========================================
+   CHECKOUT
+========================================= */
 
-function checkout(){
+async function checkout(){
 
-window.location.href =
-"checkout.html";
+    const token =
+    localStorage.getItem("token");
+
+    if(!token){
+
+        alert(
+            "Please Login First"
+        );
+
+        window.location.href =
+        "login.html";
+
+        return;
+
+    }
+
+    try{
+
+        for(const product of cart){
+
+            await placeOrder(product);
+
+        }
+
+        localStorage.removeItem("cart");
+
+        alert(
+            "Order Placed Successfully 🚀"
+        );
+
+        window.location.href =
+        "order.html";
+
+    }catch(error){
+
+        console.log(error);
+
+        alert(
+            "Checkout Failed"
+        );
+
+    }
+
+}
+
+/* =========================================
+   PLACE ORDER DATABASE
+========================================= */
+
+async function placeOrder(product){
+
+    const token =
+    localStorage.getItem("token");
+
+    try{
+
+        await fetch(
+            "https://shopx-backend-ricr.onrender.com/api/orders",
+            {
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json",
+                    authorization:token
+                },
+
+                body:JSON.stringify({
+
+                    product_name:
+                    product.name,
+
+                    product_price:
+                    product.price,
+
+                    product_image:
+                    product.image
+
+                })
+
+            }
+        );
+
+    }catch(error){
+
+        console.log(error);
+
+    }
 
 }

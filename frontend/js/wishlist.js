@@ -1,131 +1,226 @@
+const API =
+"https://shopx-backend-ricr.onrender.com";
+
 const wishlistContainer =
 document.getElementById(
 "wishlistContainer"
 );
 
-let wishlist =
-JSON.parse(
-localStorage.getItem("wishlist")
-) || [];
+/* =========================================
+   LOAD WISHLIST
+========================================= */
 
-if(wishlist.length===0){
+async function loadWishlist(){
 
-wishlistContainer.innerHTML = `
+    const token =
+    localStorage.getItem("token");
 
-<h2>
+    if(!token){
 
-Wishlist Empty
+        wishlistContainer.innerHTML = `
 
-</h2>
+        <h2 class="empty-text">
 
-`;
+        Please Login First ❤️
+
+        </h2>
+
+        `;
+
+        return;
+    }
+
+    try{
+
+        const response =
+        await fetch(
+            `${API}/api/wishlist`,
+            {
+                headers:{
+                    authorization:token
+                }
+            }
+        );
+
+        const wishlist =
+        await response.json();
+
+        /* EMPTY */
+
+        if(
+            !wishlist ||
+            wishlist.length === 0
+        ){
+
+            wishlistContainer.innerHTML = `
+
+            <h2 class="empty-text">
+
+            Wishlist Empty ❤️
+
+            </h2>
+
+            `;
+
+            return;
+        }
+
+        wishlistContainer.innerHTML = "";
+
+        wishlist.forEach((product)=>{
+
+            wishlistContainer.innerHTML += `
+
+            <div class="product-card">
+
+                <div
+                class="wishlist-icon active"
+                onclick="removeWishlist(${product.id})"
+                >
+                    <i class="fa fa-heart"></i>
+                </div>
+
+                <img
+                src="${product.product_image}"
+                alt="${product.product_name}"
+                >
+
+                <div class="product-info">
+
+                    <h3>
+
+                    ${product.product_name}
+
+                    </h3>
+
+                    <p>
+
+                    Premium Audio Product
+
+                    </p>
+
+                    <div class="price">
+
+                    ₹${product.product_price}
+
+                    </div>
+
+                    <div class="wishlist-buttons">
+
+                        <button
+                        onclick='moveToCart(
+                            ${JSON.stringify({
+                                id:"${product.product_id}",
+                                name:"${product.product_name}",
+                                price:"${product.product_price}",
+                                image:"${product.product_image}"
+                            }).replace(/'/g,"&apos;")}
+                        )'
+                        >
+
+                        Add To Cart
+
+                        </button>
+
+                        <button
+                        class="remove-btn"
+                        onclick="removeWishlist(${product.id})"
+                        >
+
+                        Remove
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            `;
+
+        });
+
+    }catch(error){
+
+        console.log(error);
+
+        wishlistContainer.innerHTML = `
+
+        <h2 class="empty-text">
+
+        Failed To Load Wishlist
+
+        </h2>
+
+        `;
+
+    }
 
 }
 
-wishlist.forEach(product=>{
+/* =========================================
+   MOVE TO CART
+========================================= */
 
-wishlistContainer.innerHTML += `
+function moveToCart(product){
 
-<div class="product-card">
+    let cart =
+    JSON.parse(
+        localStorage.getItem("cart")
+    ) || [];
 
-<img src="${product.image}">
+    cart.push(product);
 
-<div class="product-info">
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
 
-<h3>
-
-${product.name}
-
-</h3>
-
-<p>
-
-Premium Audio Product
-
-</p>
-
-<div class="price">
-
-₹${product.price}
-
-</div>
-
-<button
-onclick="moveToCart(${product.id})"
->
-
-Move To Cart
-
-</button>
-
-<button
-class="remove-btn"
-onclick="removeWishlist(${product.id})"
->
-
-Remove
-
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-/* MOVE TO CART */
-
-function moveToCart(id){
-
-const product =
-wishlist.find(
-item=>item.id===id
-);
-
-let cart =
-JSON.parse(
-localStorage.getItem("cart")
-) || [];
-
-cart.push(product);
-
-localStorage.setItem(
-"cart",
-JSON.stringify(cart)
-);
-
-/* REMOVE FROM WISHLIST */
-
-wishlist =
-wishlist.filter(
-item=>item.id!==id
-);
-
-localStorage.setItem(
-"wishlist",
-JSON.stringify(wishlist)
-);
-
-location.reload();
+    alert(
+        "Added To Cart 🛒"
+    );
 
 }
 
-/* REMOVE */
+/* =========================================
+   REMOVE WISHLIST
+========================================= */
 
-function removeWishlist(id){
+async function removeWishlist(id){
 
-wishlist =
-wishlist.filter(
-item=>item.id!==id
-);
+    const token =
+    localStorage.getItem("token");
 
-localStorage.setItem(
-"wishlist",
-JSON.stringify(wishlist)
-);
+    try{
 
-location.reload();
+        await fetch(
+            `${API}/api/wishlist/${id}`,
+            {
+                method:"DELETE",
+
+                headers:{
+                    authorization:token
+                }
+            }
+        );
+
+        loadWishlist();
+
+    }catch(error){
+
+        console.log(error);
+
+        alert(
+            "Failed To Remove"
+        );
+
+    }
 
 }
+
+/* =========================================
+   START
+========================================= */
+
+loadWishlist();

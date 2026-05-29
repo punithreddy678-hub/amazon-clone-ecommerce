@@ -35,6 +35,7 @@ const db = mysql.createConnection({
     ssl:{
         rejectUnauthorized:false
     }
+
 });
 
 db.connect((err)=>{
@@ -49,10 +50,18 @@ db.connect((err)=>{
     }else{
 
         console.log(
-            "MySQL Connected"
+            "MySQL Connected 🚀"
         );
+
     }
+
 });
+
+/* =========================================
+   EXPORT DATABASE
+========================================= */
+
+module.exports = db;
 
 /* =========================================
    ROUTES
@@ -111,7 +120,7 @@ app.use(
 );
 
 /* =========================================
-   TEST API
+   HOME API
 ========================================= */
 
 app.get("/", (req,res)=>{
@@ -122,43 +131,48 @@ app.get("/", (req,res)=>{
 
         message:
         "ShopX Backend Running 🚀"
+
     });
 
 });
 
 /* =========================================
-   PRODUCTS TEST
+   TEST PRODUCTS API
 ========================================= */
 
 app.get(
     "/api/test-products",
     (req,res)=>{
 
-    res.json([
+        res.json([
 
-        {
-            id:1,
-            name:"Sony WH-1000XM5",
-            price:29999
-        },
+            {
+                id:1,
+                name:"Sony WH-1000XM5",
+                price:29999,
+                image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200"
+            },
 
-        {
-            id:2,
-            name:"JBL Flip 6",
-            price:8999
-        },
+            {
+                id:2,
+                name:"JBL Flip 6",
+                price:8999,
+                image:"https://images.unsplash.com/photo-1585386959984-a4155224a1ad?q=80&w=1200"
+            },
 
-        {
-            id:3,
-            name:"Apple AirPods Pro",
-            price:24999
-        }
+            {
+                id:3,
+                name:"Apple AirPods Pro",
+                price:24999,
+                image:"https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46?q=80&w=1200"
+            }
 
-    ]);
+        ]);
+
 });
 
 /* =========================================
-   PORT
+   SERVER
 ========================================= */
 
 const PORT =
@@ -167,8 +181,7 @@ process.env.PORT || 5000;
 app.listen(PORT, ()=>{
 
     console.log(
-
         `Server Running On ${PORT}`
-
     );
+
 });

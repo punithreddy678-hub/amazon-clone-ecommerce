@@ -56,10 +56,20 @@ const products = [
 
 ];
 
+/* =========================================
+   PRODUCTS CONTAINER
+========================================= */
+
 const productsContainer =
 document.getElementById(
     "productsContainer"
 );
+
+/* =========================================
+   DISPLAY PRODUCTS
+========================================= */
+
+if(productsContainer){
 
 products.forEach(product=>{
 
@@ -67,77 +77,77 @@ productsContainer.innerHTML += `
 
 <div class="product-card">
 
-<div class="discount-badge">
+    <div class="discount-badge">
 
-SALE
+        SALE
 
-</div>
+    </div>
 
-<div
-class="wishlist-icon"
-onclick="addToWishlist(${product.id})"
->
+    <div
+    class="wishlist-icon"
+    onclick="addToWishlist(${product.id})"
+    >
 
-<i class="fa fa-heart"></i>
+        <i class="fa fa-heart"></i>
 
-</div>
+    </div>
 
-<img src="${product.image}">
+    <img src="${product.image}">
 
-<div class="product-info">
+    <div class="product-info">
 
-<h3>
+        <h3>
 
-${product.name}
+            ${product.name}
 
-</h3>
+        </h3>
 
-<div class="stars">
+        <div class="stars">
 
-${generateStars(product.rating)}
+            ${generateStars(product.rating)}
 
-</div>
+        </div>
 
-<p>
+        <p>
 
-Premium Quality Product
+            Premium Quality Product
 
-</p>
+        </p>
 
-<div class="price-row">
+        <div class="price-row">
 
-<div class="price">
+            <div class="price">
 
-₹${product.price}
+                ₹${product.price}
 
-</div>
+            </div>
 
-<div class="old-price">
+            <div class="old-price">
 
-₹${product.oldPrice}
+                ₹${product.oldPrice}
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-<button
-onclick="addToCart(${product.id})"
->
+        <button
+        onclick="addToCart(${product.id})"
+        >
 
-Add To Cart
+            Add To Cart
 
-</button>
+        </button>
 
-<button
-class="details-btn"
-onclick="viewDetails(${product.id})"
->
+        <button
+        class="details-btn"
+        onclick="viewDetails(${product.id})"
+        >
 
-View Details
+            View Details
 
-</button>
+        </button>
 
-</div>
+    </div>
 
 </div>
 
@@ -145,13 +155,20 @@ View Details
 
 });
 
+}
+
+/* =========================================
+   STARS
+========================================= */
+
 function generateStars(rating){
 
 let stars = "";
 
 for(let i=0;i<rating;i++){
 
-stars += `<i class="fa fa-star"></i>`;
+    stars +=
+    `<i class="fa fa-star"></i>`;
 
 }
 
@@ -159,59 +176,130 @@ return stars;
 
 }
 
-/* ADD TO CART */
+/* =========================================
+   ADD TO CART
+========================================= */
 
 function addToCart(id){
 
 const product =
-products.find(p=>p.id===id);
+products.find(
+    p=>p.id===id
+);
 
 let cart =
 JSON.parse(
-localStorage.getItem("cart")
+    localStorage.getItem("cart")
 ) || [];
 
 cart.push(product);
 
 localStorage.setItem(
-"cart",
-JSON.stringify(cart)
+    "cart",
+    JSON.stringify(cart)
 );
 
-alert("Added To Cart");
+alert(
+    "Added To Cart 🛒"
+);
 
 }
 
-/* ADD TO WISHLIST */
+/* =========================================
+   ADD TO WISHLIST
+========================================= */
 
-function addToWishlist(id){
+async function addToWishlist(id){
 
-const product =
-products.find(p=>p.id===id);
+    const token =
+    localStorage.getItem("token");
 
-let wishlist =
-JSON.parse(
-localStorage.getItem("wishlist")
-) || [];
+    if(!token){
 
-wishlist.push(product);
+        alert(
+            "Please Login First"
+        );
 
-localStorage.setItem(
-"wishlist",
-JSON.stringify(wishlist)
-);
+        window.location.href =
+        "login.html";
 
-alert("Added To Wishlist");
+        return;
+
+    }
+
+    const product =
+    products.find(
+        p => p.id === id
+    );
+
+    /* LOCAL STORAGE */
+
+    let wishlist =
+    JSON.parse(
+        localStorage.getItem("wishlist")
+    ) || [];
+
+    wishlist.push(product);
+
+    localStorage.setItem(
+        "wishlist",
+        JSON.stringify(wishlist)
+    );
+
+    /* DATABASE */
+
+    try{
+
+        await fetch(
+            "https://shopx-backend-ricr.onrender.com/api/wishlist",
+            {
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json",
+                    authorization:token
+                },
+
+                body:JSON.stringify({
+
+                    product_name:
+                    product.name,
+
+                    product_price:
+                    product.price,
+
+                    product_image:
+                    product.image
+
+                })
+            }
+        );
+
+        alert(
+            "Added To Wishlist ❤️"
+        );
+
+    }catch(error){
+
+        console.log(error);
+
+        alert(
+            "Wishlist Error"
+        );
+
+    }
 
 }
 
-/* DETAILS */
+/* =========================================
+   PRODUCT DETAILS
+========================================= */
 
 function viewDetails(id){
 
 localStorage.setItem(
-"selectedProduct",
-id
+    "selectedProduct",
+    id
 );
 
 window.location.href =

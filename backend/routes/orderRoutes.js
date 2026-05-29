@@ -2,19 +2,65 @@ const express = require("express");
 
 const router = express.Router();
 
-const auth =
-    require("../middleware/authMiddleware");
+const db = require("../config/db");
 
-const {
+const auth = require("../middleware/authMiddleware");
 
-    createOrder
+/* ADD ORDER */
 
-} = require("../controllers/orderController");
+router.post("/",auth,(req,res)=>{
 
-router.post(
-    "/create",
-    auth,
-    createOrder
-);
+    const {
+        product_name,
+        product_price,
+        product_image
+    } = req.body;
+
+    db.query(
+        "INSERT INTO orders(user_id,product_name,product_price,product_image) VALUES(?,?,?,?)",
+        [
+            req.user.id,
+            product_name,
+            product_price,
+            product_image
+        ],
+        (err,result)=>{
+
+            if(err){
+
+                return res.status(500).json(err);
+
+            }
+
+            res.json({
+                message:"Order Saved"
+            });
+
+        }
+    );
+
+});
+
+/* GET USER ORDERS */
+
+router.get("/",auth,(req,res)=>{
+
+    db.query(
+        "SELECT * FROM orders WHERE user_id=? ORDER BY id DESC",
+        [req.user.id],
+        (err,result)=>{
+
+            if(err){
+
+                return res.status(500).json(err);
+
+            }
+
+            res.json(result);
+
+        }
+    );
+
+});
 
 module.exports = router;

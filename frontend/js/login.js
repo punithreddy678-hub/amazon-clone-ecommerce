@@ -4,36 +4,36 @@ const API =
 async function login(){
 
     const email =
-        document.getElementById("email").value;
+    document.getElementById("email").value;
 
     const password =
-        document.getElementById("password").value;
+    document.getElementById("password").value;
 
     try{
 
         const response =
-            await fetch(
-                `${API}/api/auth/login`,
-                {
-                    method:"POST",
+        await fetch(
+            `${API}/api/auth/login`,
+            {
+                method:"POST",
 
-                    headers:{
-                        "Content-Type":"application/json"
-                    },
+                headers:{
+                    "Content-Type":"application/json"
+                },
 
-                    body:JSON.stringify({
-                        email,
-                        password
-                    })
-                }
-            );
+                body:JSON.stringify({
+                    email,
+                    password
+                })
+            }
+        );
 
         const data =
-            await response.json();
+        await response.json();
 
         if(response.ok){
 
-            // SAVE USER SESSION
+            /* SAVE USER */
 
             localStorage.setItem(
                 "token",
@@ -45,16 +45,18 @@ async function login(){
                 JSON.stringify(data.user)
             );
 
-            alert("Login Successful");
-
-            // OPEN WEBSITE
+            alert(
+                "Login Successful"
+            );
 
             window.location.href =
-                "index.html";
+            "index.html";
 
         }else{
 
-            alert(data.message);
+            alert(
+                data.message
+            );
 
         }
 
@@ -62,7 +64,9 @@ async function login(){
 
         console.log(error);
 
-        alert("Server Error");
+        alert(
+            "Server Error"
+        );
 
     }
 
