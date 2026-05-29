@@ -1,4 +1,4 @@
-const API_KEY = "PASTE_YOUR_GEMINI_API_KEY";
+const API_KEY = "AIzaSyDzr9ihrpnw5vC7zH3r6KrlBTsIbjFrQfI";
 
 // =======================
 // OPEN / CLOSE CHATBOT
