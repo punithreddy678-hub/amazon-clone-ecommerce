@@ -1,90 +1,54 @@
 const db = require("../config/db");
 
 // ADD REVIEW
-
-exports.addReview = (req,res)=>{
-
-    const userId = req.user.id;
+exports.addReview = (req, res) => {
 
     const {
-
-        productId,
+        product_id,
+        user_name,
         rating,
         comment
-
     } = req.body;
 
-    const sql = `
-        INSERT INTO reviews
-        (userId,productId,rating,comment)
-        VALUES(?,?,?,?)
-    `;
+    const sql =
+        "INSERT INTO reviews (product_id, user_name, rating, comment) VALUES (?, ?, ?, ?)";
 
     db.query(
-
         sql,
-
-        [
-            userId,
-            productId,
-            rating,
-            comment
-        ],
-
-        (err,result)=>{
+        [product_id, user_name, rating, comment],
+        (err, result) => {
 
             if(err){
-
                 return res.status(500).json(err);
-
             }
 
             res.json({
-                message:"Review Added"
+                message: "Review Added"
             });
 
         }
-
     );
 
 };
 
 // GET REVIEWS
+exports.getReviews = (req, res) => {
 
-exports.getReviews = (req,res)=>{
-
-    const sql = `
-        SELECT
-        reviews.rating,
-        reviews.comment,
-        users.name
-
-        FROM reviews
-
-        JOIN users
-        ON reviews.userId = users.id
-
-        WHERE productId=?
-    `;
+    const sql =
+        "SELECT * FROM reviews WHERE product_id=?";
 
     db.query(
-
         sql,
-
         [req.params.productId],
-
-        (err,result)=>{
+        (err, results) => {
 
             if(err){
-
                 return res.status(500).json(err);
-
             }
 
-            res.json(result);
+            res.json(results);
 
         }
-
     );
 
 };
