@@ -343,33 +343,7 @@
 
     </section>
 
-    <!-- AI ASSISTANT -->
-
-    <section class="ai-section">
-
-        <h2>AI Shopping Assistant</h2>
-
-        <div class="ai-box">
-
-            <div id="chatMessages"></div>
-
-            <div class="ai-input">
-
-                <input
-                    type="text"
-                    id="chatInput"
-                    placeholder="Ask anything..."
-                >
-
-                <button onclick="sendMessage()">
-                    Send
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
+    
 
     <!-- FOOTER -->
 
@@ -398,6 +372,39 @@
         </div>
 
     </footer>
+    <!-- GEMINI AI CHATBOT -->
+
+<div class="ai-chatbot">
+
+    <div class="chat-header">
+
+        <h2>
+            Gemini AI Assistant
+        </h2>
+
+    </div>
+
+    <div id="chatbotMessages">
+
+    </div>
+
+    <div class="chat-input">
+
+        <input
+            type="text"
+            id="chatInput"
+            placeholder="Ask anything..."
+        >
+
+        <button onclick="sendMessage()">
+            Send
+        </button>
+
+    </div>
+
+</div>
+
+<script src="js/chatbot.js"></script>
 
     <!-- JS -->
 
