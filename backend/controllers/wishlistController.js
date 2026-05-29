@@ -1,83 +1,53 @@
-const db = require("../config/db");
+exports.getWishlist = async (req, res) => {
 
-// ADD TO WISHLIST
+    try {
 
-exports.addToWishlist = (req,res)=>{
+        res.json([]);
 
-    const userId = req.user.id;
+    } catch (error) {
 
-    const { productId } = req.body;
+        res.status(500).json({
+            message: error.message
+        });
 
-    const sql = `
-        INSERT INTO wishlist
-        (userId,productId)
-        VALUES(?,?)
-    `;
-
-    db.query(
-
-        sql,
-
-        [
-            userId,
-            productId
-        ],
-
-        (err,result)=>{
-
-            if(err){
-
-                return res.status(500).json(err);
-
-            }
-
-            res.json({
-                message:"Added To Wishlist"
-            });
-
-        }
-
-    );
+    }
 
 };
 
-// GET WISHLIST
+exports.addToWishlist = async (req, res) => {
 
-exports.getWishlist = (req,res)=>{
+    try {
 
-    const sql = `
-        SELECT
-        wishlist.id,
-        products.title,
-        products.price,
-        products.image
+        res.json({
+            success: true,
+            message: "Product added to wishlist"
+        });
 
-        FROM wishlist
+    } catch (error) {
 
-        JOIN products
-        ON wishlist.productId = products.id
+        res.status(500).json({
+            message: error.message
+        });
 
-        WHERE wishlist.userId = ?
-    `;
+    }
 
-    db.query(
+};
 
-        sql,
+exports.removeFromWishlist = async (req, res) => {
 
-        [req.user.id],
+    try {
 
-        (err,result)=>{
+        res.json({
+            success: true,
+            message: "Product removed from wishlist"
+        });
 
-            if(err){
+    } catch (error) {
 
-                return res.status(500).json(err);
+        res.status(500).json({
+            message: error.message
+        });
 
-            }
-
-            res.json(result);
-
-        }
-
-    );
+    }
 
 };
