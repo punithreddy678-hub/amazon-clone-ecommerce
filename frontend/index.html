@@ -3,28 +3,24 @@
 
 <head>
 
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
 
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
-    >
+    />
 
-    <title>VELA AUDIO</title>
-
-    <!-- CSS -->
+    <title>ShopX Audio</title>
 
     <link
         rel="stylesheet"
         href="css/style.css"
-    >
-
-    <!-- FONT AWESOME -->
+    />
 
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    >
+    />
 
 </head>
 
@@ -34,8 +30,6 @@
 
     <nav class="navbar">
 
-        <!-- LOGO -->
-
         <div class="logo">
 
             <h1>VELA</h1>
@@ -44,77 +38,52 @@
 
         </div>
 
-        <!-- NAV LINKS -->
+        <ul class="nav-links">
 
-        <div class="nav-links">
+            <li>
+                <a href="#products">
+                    Products
+                </a>
+            </li>
 
-            <a href="#home">
-                Home
-            </a>
+            <li>
+                <a href="#about">
+                    About Us
+                </a>
+            </li>
 
-            <a href="#products">
-                Products
-            </a>
+            <li>
+                <a href="#contact">
+                    Contact Us
+                </a>
+            </li>
 
-            <a href="#about">
-                About
-            </a>
+            <li>
+                <a href="#support">
+                    Support
+                </a>
+            </li>
 
-            <a href="#support">
-                Support
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-        </div>
-
-        <!-- SEARCH -->
-
-        <div class="search-box">
-
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search products..."
-            >
-
-            <button onclick="searchProducts()">
-
-                <i class="fa fa-search"></i>
-
-            </button>
-
-        </div>
-
-        <!-- ICONS -->
+        </ul>
 
         <div class="nav-icons">
 
+            <button
+                class="search-btn"
+                onclick="searchProducts()"
+            >
+                <i class="fa fa-search"></i>
+            </button>
+
             <a href="wishlist.html">
-
                 <i class="fa fa-heart"></i>
-
             </a>
 
             <a href="cart.html">
-
                 <i class="fa fa-shopping-cart"></i>
-
             </a>
 
-            <a href="login.html">
-
-                <i class="fa fa-user"></i>
-
-            </a>
-
-            <a href="admin.html">
-
-                <i class="fa fa-chart-line"></i>
-
-            </a>
+            <div id="userInfo"></div>
 
         </div>
 
@@ -122,37 +91,74 @@
 
     <!-- HERO SECTION -->
 
-    <section
-        class="hero"
-        id="home"
-    >
+    <section class="hero">
 
         <div class="hero-content">
 
             <h1>
-
-                EXPERIENCE
-                <br>
-                PREMIUM SOUND
-
+                EXPERIENCE PURE SOUND.
+                EVERYWHERE.
             </h1>
 
             <p>
-
-                Headphones,
-                Earbuds,
-                Smart Watches,
-                Speakers &
-                Gaming Accessories
-
+                Explore premium headphones,
+                speakers, earbuds and gaming gear.
             </p>
 
-            <button>
+            <a href="#products">
 
-                SHOP NOW
+                <button>
+                    SHOP COLLECTION
+                </button>
 
-            </button>
+            </a>
 
+        </div>
+
+    </section>
+
+    <!-- SEARCH -->
+
+    <section class="search-section">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products..."
+        />
+
+        <button onclick="searchProducts()">
+            Search
+        </button>
+
+    </section>
+
+    <!-- CATEGORIES -->
+
+    <section class="categories">
+
+        <div class="category-card">
+            Headphones
+        </div>
+
+        <div class="category-card">
+            Speakers
+        </div>
+
+        <div class="category-card">
+            Earbuds
+        </div>
+
+        <div class="category-card">
+            Smart Watches
+        </div>
+
+        <div class="category-card">
+            Gaming
+        </div>
+
+        <div class="category-card">
+            Accessories
         </div>
 
     </section>
@@ -164,10 +170,8 @@
         id="products"
     >
 
-        <h2 class="section-title">
-
+        <h2>
             Featured Products
-
         </h2>
 
         <div
@@ -182,33 +186,44 @@
     <!-- ABOUT -->
 
     <section
-        class="about"
+        class="about-section"
         id="about"
     >
 
         <h2>
-
-            About VELA AUDIO
-
+            About Us
         </h2>
 
         <p>
 
-            VELA AUDIO delivers
-            premium sound products
-            built for modern music lovers.
+            VELA Audio delivers premium sound
+            technology with modern aesthetics,
+            deep bass and crystal-clear audio
+            experiences.
 
-            Our collection includes
-            wireless headphones,
-            smart wearables,
-            gaming accessories,
-            premium speakers
-            and next-generation audio devices.
+        </p>
 
-            We focus on elegant design,
-            immersive sound quality,
-            and cutting-edge technology.
+    </section>
 
+    <!-- CONTACT -->
+
+    <section
+        class="contact-section"
+        id="contact"
+    >
+
+        <h2>
+            Contact Us
+        </h2>
+
+        <p>
+            Email:
+            support@shopxaudio.com
+        </p>
+
+        <p>
+            Phone:
+            +91 9876543210
         </p>
 
     </section>
@@ -216,265 +231,80 @@
     <!-- SUPPORT -->
 
     <section
-        class="support"
+        class="support-section"
         id="support"
     >
 
-        <h2 class="section-title">
-
-            Customer Support
-
-        </h2>
-
-        <div class="support-grid">
-
-            <div class="support-card">
-
-                <h3>
-
-                    Free Shipping
-
-                </h3>
-
-                <p>
-
-                    Fast delivery across India.
-
-                </p>
-
-            </div>
-
-            <div class="support-card">
-
-                <h3>
-
-                    24/7 Support
-
-                </h3>
-
-                <p>
-
-                    Always available for help.
-
-                </p>
-
-            </div>
-
-            <div class="support-card">
-
-                <h3>
-
-                    Warranty
-
-                </h3>
-
-                <p>
-
-                    1 year premium warranty.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- CONTACT -->
-
-    <section
-        class="contact"
-        id="contact"
-    >
-
         <h2>
-
-            Contact Us
-
+            Support
         </h2>
 
-        <div class="contact-container">
-
-            <div class="contact-box">
-
-                <h3>
-
-                    Email
-
-                </h3>
-
-                <p>
-
-                    support@velaaudio.com
-
-                </p>
-
-            </div>
-
-            <div class="contact-box">
-
-                <h3>
-
-                    Phone
-
-                </h3>
-
-                <p>
-
-                    +91 9876543210
-
-                </p>
-
-            </div>
-
-            <div class="contact-box">
-
-                <h3>
-
-                    Address
-
-                </h3>
-
-                <p>
-
-                    Hyderabad, India
-
-                </p>
-
-            </div>
-
-        </div>
+        <p>
+            24/7 customer support available
+            for all orders and products.
+        </p>
 
     </section>
 
     <!-- CHATBOT -->
 
-    <div class="chatbot">
+    <div class="chatbot-container">
 
-        <button id="chatBtn">
+        <h3>
+            AI Shopping Assistant
+        </h3>
 
-            💬
+        <div
+            id="chatbotMessages"
+            class="chat-messages"
+        >
 
-        </button>
+        </div>
+
+        <div class="chat-input-box">
+
+            <input
+                type="text"
+                id="chatInput"
+                placeholder="Ask me anything..."
+            />
+
+            <button onclick="sendMessage()">
+                Send
+            </button>
+
+        </div>
 
     </div>
-
-    <!-- VOICE SEARCH -->
-
-    <button id="voiceBtn">
-
-        🎤
-
-    </button>
 
     <!-- FOOTER -->
 
     <footer>
 
-        <div class="footer-container">
+        <div class="footer-content">
 
-            <!-- BRAND -->
+            <h2>VELA AUDIO</h2>
 
-            <div>
+            <p>
+                Premium Audio E-Commerce Experience
+            </p>
 
-                <h2>
+            <div class="social-icons">
 
-                    VELA AUDIO
-
-                </h2>
-
-                <p>
-
-                    Premium Audio Experience
-
-                </p>
-
-                <div class="social-icons">
-
+                <a href="#">
                     <i class="fab fa-facebook"></i>
+                </a>
 
+                <a href="#">
                     <i class="fab fa-instagram"></i>
+                </a>
 
-                    <i class="fab fa-twitter"></i>
+                <a href="#">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
 
+                <a href="#">
                     <i class="fab fa-youtube"></i>
-
-                </div>
-
-            </div>
-
-            <!-- PRODUCTS -->
-
-            <div>
-
-                <h3>
-
-                    Products
-
-                </h3>
-
-                <a href="#">
-                    Headphones
-                </a>
-
-                <a href="#">
-                    Earbuds
-                </a>
-
-                <a href="#">
-                    Speakers
-                </a>
-
-                <a href="#">
-                    Smart Watches
-                </a>
-
-            </div>
-
-            <!-- SUPPORT -->
-
-            <div>
-
-                <h3>
-
-                    Support
-
-                </h3>
-
-                <a href="#">
-                    Help Center
-                </a>
-
-                <a href="#">
-                    Warranty
-                </a>
-
-                <a href="#">
-                    Shipping
-                </a>
-
-            </div>
-
-            <!-- COMPANY -->
-
-            <div>
-
-                <h3>
-
-                    Company
-
-                </h3>
-
-                <a href="#">
-                    About Us
-                </a>
-
-                <a href="#">
-                    Careers
-                </a>
-
-                <a href="#">
-                    Privacy Policy
                 </a>
 
             </div>
@@ -490,8 +320,6 @@
     <script src="js/cart.js"></script>
 
     <script src="js/chatbot.js"></script>
-
-    <script src="js/voice.js"></script>
 
     <script src="js/app.js"></script>
 

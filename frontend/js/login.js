@@ -9,51 +9,60 @@ async function login(){
     const password =
         document.getElementById("password").value;
 
-    const response =
-        await fetch(
-            `${API}/api/auth/login`,
-            {
-                method:"POST",
+    try{
 
-                headers:{
-                    "Content-Type":"application/json"
-                },
+        const response =
+            await fetch(
+                `${API}/api/auth/login`,
+                {
+                    method:"POST",
 
-                body:JSON.stringify({
+                    headers:{
+                        "Content-Type":"application/json"
+                    },
 
-                    email,
-                    password
+                    body:JSON.stringify({
+                        email,
+                        password
+                    })
+                }
+            );
 
-                })
+        const data =
+            await response.json();
 
-            }
-        );
+        if(response.ok){
 
-    const data =
-        await response.json();
+            // SAVE USER SESSION
 
-    if(response.ok){
+            localStorage.setItem(
+                "token",
+                data.token
+            );
 
-        // SAVE TOKEN
+            localStorage.setItem(
+                "user",
+                JSON.stringify(data.user)
+            );
 
-        localStorage.setItem(
-            "token",
-            data.token
-        );
+            alert("Login Successful");
 
-        localStorage.setItem(
-            "user",
-            JSON.stringify(data.user)
-        );
+            // OPEN WEBSITE
 
-        alert("Login Success");
+            window.location.href =
+                "index.html";
 
-        window.location.href =
-            "index.html";
+        }else{
 
-    }else{
+            alert(data.message);
 
-        alert(data.message);
+        }
+
+    }catch(error){
+
+        console.log(error);
+
+        alert("Server Error");
 
     }
 
