@@ -1,101 +1,101 @@
 const db = require("../config/db");
-
 const bcrypt = require("bcryptjs");
-
 const jwt = require("jsonwebtoken");
 
-/* REGISTER */
+// REGISTER
 
-exports.registerUser = async (req,res)=>{
-
-    const {
-        name,
-        email,
-        password
-    } = req.body;
+exports.register = async (req, res) => {
 
     try{
 
-        const hashedPassword =
-            await bcrypt.hash(password,10);
+        const {
+            name,
+            email,
+            password
+        } = req.body;
 
-        const sql = `
-            INSERT INTO users
-            (name,email,password)
-            VALUES(?,?,?)
-        `;
+        // CHECK USER
 
         db.query(
-            sql,
-            [
-                name,
-                email,
-                hashedPassword
-            ],
-            (err,result)=>{
+            "SELECT * FROM users WHERE email=?",
+            [email],
+            async(err, result) => {
 
-                if(err){
+                if(result.length > 0){
 
-                    return res.status(500).json({
-                        message:"User Exists"
+                    return res.status(400).json({
+                        message:"User already exists"
                     });
 
                 }
 
-                res.json({
-                    message:"Registration Successful"
-                });
+                // HASH PASSWORD
+
+                const hashedPassword =
+                    await bcrypt.hash(password, 10);
+
+                // INSERT USER
+
+                db.query(
+                    "INSERT INTO users(name,email,password) VALUES(?,?,?)",
+                    [name,email,hashedPassword],
+                    (err, data) => {
+
+                        if(err){
+
+                            return res.status(500).json(err);
+
+                        }
+
+                        res.json({
+                            message:"User Registered Successfully"
+                        });
+
+                    }
+                );
 
             }
         );
 
     }catch(error){
 
-        res.status(500).json({
-            message:"Server Error"
-        });
+        res.status(500).json(error);
 
     }
 
 };
 
-/* LOGIN */
+// LOGIN
 
-exports.loginUser = (req,res)=>{
+exports.login = (req, res) => {
 
     const {
         email,
         password
     } = req.body;
 
-    const sql = `
-        SELECT * FROM users
-        WHERE email=?
-    `;
-
     db.query(
-        sql,
+        "SELECT * FROM users WHERE email=?",
         [email],
-        async (err,result)=>{
+        async(err, result) => {
 
             if(err){
 
-                return res.status(500).json({
-                    message:"Server Error"
-                });
+                return res.status(500).json(err);
 
             }
 
             if(result.length === 0){
 
-                return res.status(400).json({
-                    message:"User Not Found"
+                return res.status(404).json({
+                    message:"User not found"
                 });
 
             }
 
-            const user =
-                result[0];
+            const user = result[0];
+
+            // CHECK PASSWORD
 
             const validPassword =
                 await bcrypt.compare(
@@ -105,18 +105,21 @@ exports.loginUser = (req,res)=>{
 
             if(!validPassword){
 
-                return res.status(400).json({
+                return res.status(401).json({
                     message:"Invalid Password"
                 });
 
             }
+
+            // TOKEN
 
             const token =
                 jwt.sign(
 
                     {
                         id:user.id,
-                        role:user.role
+                        email:user.email,
+                        isAdmin:user.isAdmin
                     },
 
                     process.env.JWT_SECRET,
@@ -129,18 +132,16 @@ exports.loginUser = (req,res)=>{
 
             res.json({
 
+                message:"Login Success",
+
                 token,
 
                 user:{
 
                     id:user.id,
-
                     name:user.name,
-
                     email:user.email,
-
-                    role:user.role
-
+                    isAdmin:user.isAdmin
                 }
 
             });

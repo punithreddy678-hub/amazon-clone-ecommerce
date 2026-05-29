@@ -1,4 +1,7 @@
-async function loginUser(){
+const API =
+"https://shopx-backend-ricr.onrender.com";
+
+async function login(){
 
     const email =
         document.getElementById("email").value;
@@ -6,53 +9,51 @@ async function loginUser(){
     const password =
         document.getElementById("password").value;
 
-    try{
+    const response =
+        await fetch(
+            `${API}/api/auth/login`,
+            {
+                method:"POST",
 
-        const response =
-            await fetch(
-                "https://shopx-backend-ricr.onrender.com/api/auth/login",
-                {
-                    method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
 
-                    headers:{
-                        "Content-Type":"application/json"
-                    },
+                body:JSON.stringify({
 
-                    body:JSON.stringify({
+                    email,
+                    password
 
-                        email,
-                        password
+                })
 
-                    })
-                }
-            );
+            }
+        );
 
-        const data =
-            await response.json();
+    const data =
+        await response.json();
 
-        if(response.ok){
+    if(response.ok){
 
-            localStorage.setItem(
-                "token",
-                data.token
-            );
+        // SAVE TOKEN
 
-            alert("Login Successful");
+        localStorage.setItem(
+            "token",
+            data.token
+        );
 
-            window.location.href =
-                "index.html";
+        localStorage.setItem(
+            "user",
+            JSON.stringify(data.user)
+        );
 
-        }else{
+        alert("Login Success");
 
-            alert(data.message);
+        window.location.href =
+            "index.html";
 
-        }
+    }else{
 
-    }catch(error){
-
-        console.log(error);
-
-        alert("Login Failed");
+        alert(data.message);
 
     }
 
