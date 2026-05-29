@@ -845,3 +845,40 @@ footer{
 .cart-item button:hover{
     background:#d90429;
 }
+/* =========================
+   USER ACCOUNT
+========================= */
+
+.user-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    background:white;
+
+    padding:10px 16px;
+
+    border-radius:50px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.user-box i{
+    font-size:22px;
+    color:#7b2cbf;
+}
+
+.user-box span{
+    font-size:14px;
+    font-weight:600;
+}
+
+.user-box button{
+    border:none;
+    background:#ff4d6d;
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:13px;
+}
