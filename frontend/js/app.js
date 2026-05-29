@@ -1,50 +1,8 @@
-// CHECK LOGIN
+const productsContainer =
+document.getElementById("products");
 
-const user =
-    JSON.parse(
-        localStorage.getItem("user")
-    );
+if(productsContainer){
 
-const userInfo =
-    document.getElementById("userInfo");
-
-if(user){
-
-    userInfo.innerHTML = `
-
-        <span class="welcome-text">
-            Hi, ${user.name}
-        </span>
-
-        <button onclick="logout()"
-            class="logout-btn">
-            Logout
-        </button>
-
-    `;
-
-}else{
-
-    userInfo.innerHTML = `
-
-        <a href="login.html">
-            <i class="fa fa-user"></i>
-        </a>
-
-    `;
-
+    productsContainer.innerHTML =
+    "<p>Products Loading...</p>";
 }
-
-// LOGOUT
-
-function logout(){
-
-    localStorage.removeItem("token");
-
-    localStorage.removeItem("user");
-
-    window.location.href =
-        "login.html";
-
-}
-console.log("VELA AUDIO Loaded");
