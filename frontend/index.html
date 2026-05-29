@@ -372,15 +372,33 @@
         </div>
 
     </footer>
-    <!-- GEMINI AI CHATBOT -->
+<!-- AI BUTTON -->
 
-<div class="ai-chatbot">
+<div
+    class="ai-toggle"
+    onclick="toggleChatbot()"
+>
+
+    🤖
+
+</div>
+
+<!-- GEMINI CHATBOT -->
+
+<div
+    class="ai-chatbot"
+    id="aiChatbot"
+>
 
     <div class="chat-header">
 
         <h2>
-            Gemini AI Assistant
+            Gemini AI
         </h2>
+
+        <span onclick="toggleChatbot()">
+            ✖
+        </span>
 
     </div>
 
@@ -401,6 +419,10 @@
         </button>
 
     </div>
+
+</div>
+
+<script src="js/chatbot.js"></script>
 
 </div>
 

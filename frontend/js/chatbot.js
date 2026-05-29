@@ -1,4 +1,20 @@
-console.log("Chatbot Ready"); API_KEY = "AIzaSyDzr9ihrpnw5vC7zH3r6KrlBTsIbjFrQfI";
+const API_KEY = "PASTE_YOUR_GEMINI_API_KEY";
+
+// =======================
+// OPEN / CLOSE CHATBOT
+// =======================
+
+function toggleChatbot(){
+
+    const chatbot =
+        document.getElementById("aiChatbot");
+
+    chatbot.classList.toggle("show-chat");
+}
+
+// =======================
+// SEND MESSAGE
+// =======================
 
 async function sendMessage(){
 
@@ -8,17 +24,17 @@ async function sendMessage(){
     const messages =
         document.getElementById("chatbotMessages");
 
-    const userMessage =
+    const text =
         input.value.trim();
 
-    if(userMessage === "") return;
+    if(text === "") return;
 
     // USER MESSAGE
 
     messages.innerHTML += `
 
         <div class="user-message">
-            ${userMessage}
+            ${text}
         </div>
 
     `;
@@ -46,7 +62,7 @@ async function sendMessage(){
                             {
                                 parts:[
                                     {
-                                        text:userMessage
+                                        text:text
                                     }
                                 ]
                             }
@@ -62,7 +78,7 @@ async function sendMessage(){
         const data =
             await response.json();
 
-        const botReply =
+        const reply =
             data.candidates[0]
             .content.parts[0].text;
 
@@ -71,7 +87,7 @@ async function sendMessage(){
         messages.innerHTML += `
 
             <div class="bot-message">
-                ${botReply}
+                ${reply}
             </div>
 
         `;
