@@ -99,3 +99,85 @@ function searchProducts(){
     displayProducts(filteredProducts);
 
 }
+const products = [
+    "VELA Lunar ANC",
+    "VELA Boom Speaker",
+    "VELA AirBuds Pro",
+    "VELA Smart Watch X",
+    "VELA Gaming Headset",
+    "VELA Audio Cable Kit"
+];
+
+function showSuggestions() {
+
+    const input =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    const suggestionsBox =
+        document.getElementById("suggestionsBox");
+
+    suggestionsBox.innerHTML = "";
+
+    if(input === "") {
+        suggestionsBox.style.display = "none";
+        return;
+    }
+
+    const filteredProducts =
+        products.filter(product =>
+            product.toLowerCase().includes(input)
+        );
+
+    filteredProducts.forEach(product => {
+
+        const div = document.createElement("div");
+
+        div.classList.add("suggestion-item");
+
+        div.innerText = product;
+
+        div.onclick = () => {
+
+            document.getElementById("searchInput").value = product;
+
+            suggestionsBox.style.display = "none";
+
+            searchProducts();
+        };
+
+        suggestionsBox.appendChild(div);
+    });
+
+    suggestionsBox.style.display =
+        filteredProducts.length ? "block" : "none";
+}
+
+function searchProducts() {
+
+    const input =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase();
+
+    const cards =
+        document.querySelectorAll(".product-card");
+
+    cards.forEach(card => {
+
+        const title =
+            card.querySelector("h3")
+            .innerText
+            .toLowerCase();
+
+        if(title.includes(input)) {
+            card.style.display = "block";
+        }
+        else{
+            card.style.display = "none";
+        }
+    });
+}

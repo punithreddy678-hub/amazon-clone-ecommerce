@@ -40,19 +40,25 @@
 
         <div class="nav-icons">
 
-            <div class="search-container">
+<div class="search-container">
 
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="Search products..."
-                >
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search products..."
+        onkeyup="showSuggestions()"
+    >
 
-                <button onclick="searchProducts()">
-                    <i class="fa fa-search"></i>
-                </button>
+    <button onclick="searchProducts()">
+        Search
+    </button>
 
-            </div>
+    <div
+        class="suggestions-box"
+        id="suggestionsBox"
+    ></div>
+
+</div>
 
             <a href="wishlist.html">
                 <i class="fa fa-heart"></i>
