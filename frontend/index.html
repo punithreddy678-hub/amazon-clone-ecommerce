@@ -3,24 +3,15 @@
 
 <head>
 
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    />
+    <title>VELA Audio</title>
 
-    <title>ShopX Audio</title>
+    <link rel="stylesheet" href="css/style.css">
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    />
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
@@ -31,49 +22,37 @@
     <nav class="navbar">
 
         <div class="logo">
-
             <h1>VELA</h1>
-
             <span>AUDIO</span>
-
         </div>
 
         <ul class="nav-links">
 
-            <li>
-                <a href="#products">
-                    Products
-                </a>
-            </li>
+            <li><a href="#products">Products</a></li>
 
-            <li>
-                <a href="#about">
-                    About Us
-                </a>
-            </li>
+            <li><a href="#about">About Us</a></li>
 
-            <li>
-                <a href="#contact">
-                    Contact Us
-                </a>
-            </li>
+            <li><a href="#contact">Contact Us</a></li>
 
-            <li>
-                <a href="#support">
-                    Support
-                </a>
-            </li>
+            <li><a href="#support">Support</a></li>
 
         </ul>
 
         <div class="nav-icons">
 
-            <button
-                class="search-btn"
-                onclick="searchProducts()"
-            >
-                <i class="fa fa-search"></i>
-            </button>
+            <div class="search-container">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search products..."
+                >
+
+                <button onclick="searchProducts()">
+                    <i class="fa fa-search"></i>
+                </button>
+
+            </div>
 
             <a href="wishlist.html">
                 <i class="fa fa-heart"></i>
@@ -83,20 +62,27 @@
                 <i class="fa fa-shopping-cart"></i>
             </a>
 
-            <div id="userInfo"></div>
+            <span id="welcomeUser"></span>
+
+            <button onclick="logout()" class="logout-btn">
+                Logout
+            </button>
 
         </div>
 
     </nav>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
 
     <section class="hero">
+
+        <div class="overlay"></div>
 
         <div class="hero-content">
 
             <h1>
                 EXPERIENCE PURE SOUND.
+                <br>
                 EVERYWHERE.
             </h1>
 
@@ -105,31 +91,11 @@
                 speakers, earbuds and gaming gear.
             </p>
 
-            <a href="#products">
-
-                <button>
-                    SHOP COLLECTION
-                </button>
-
-            </a>
+            <button>
+                SHOP COLLECTION
+            </button>
 
         </div>
-
-    </section>
-
-    <!-- SEARCH -->
-
-    <section class="search-section">
-
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search products..."
-        />
-
-        <button onclick="searchProducts()">
-            Search
-        </button>
 
     </section>
 
@@ -138,46 +104,44 @@
     <section class="categories">
 
         <div class="category-card">
-            Headphones
+            <i class="fa fa-headphones"></i>
+            <h3>Headphones</h3>
         </div>
 
         <div class="category-card">
-            Speakers
+            <i class="fa fa-volume-high"></i>
+            <h3>Speakers</h3>
         </div>
 
         <div class="category-card">
-            Earbuds
+            <i class="fa fa-music"></i>
+            <h3>Earbuds</h3>
         </div>
 
         <div class="category-card">
-            Smart Watches
+            <i class="fa fa-clock"></i>
+            <h3>Smart Watches</h3>
         </div>
 
         <div class="category-card">
-            Gaming
+            <i class="fa fa-gamepad"></i>
+            <h3>Gaming</h3>
         </div>
 
         <div class="category-card">
-            Accessories
+            <i class="fa fa-plug"></i>
+            <h3>Accessories</h3>
         </div>
 
     </section>
 
     <!-- PRODUCTS -->
 
-    <section
-        class="products"
-        id="products"
-    >
+    <section class="products" id="products">
 
-        <h2>
-            Featured Products
-        </h2>
+        <h2>Featured Products</h2>
 
-        <div
-            class="product-grid"
-            id="productGrid"
-        >
+        <div class="product-grid" id="productsContainer">
 
         </div>
 
@@ -185,97 +149,69 @@
 
     <!-- ABOUT -->
 
-    <section
-        class="about-section"
-        id="about"
-    >
+    <section class="info-section" id="about">
 
-        <h2>
-            About Us
-        </h2>
+        <div class="info-box">
 
-        <p>
+            <h2>About Us</h2>
 
-            VELA Audio delivers premium sound
-            technology with modern aesthetics,
-            deep bass and crystal-clear audio
-            experiences.
-
-        </p>
-
-    </section>
-
-    <!-- CONTACT -->
-
-    <section
-        class="contact-section"
-        id="contact"
-    >
-
-        <h2>
-            Contact Us
-        </h2>
-
-        <p>
-            Email:
-            support@shopxaudio.com
-        </p>
-
-        <p>
-            Phone:
-            +91 9876543210
-        </p>
-
-    </section>
-
-    <!-- SUPPORT -->
-
-    <section
-        class="support-section"
-        id="support"
-    >
-
-        <h2>
-            Support
-        </h2>
-
-        <p>
-            24/7 customer support available
-            for all orders and products.
-        </p>
-
-    </section>
-
-    <!-- CHATBOT -->
-
-    <div class="chatbot-container">
-
-        <h3>
-            AI Shopping Assistant
-        </h3>
-
-        <div
-            id="chatbotMessages"
-            class="chat-messages"
-        >
+            <p>
+                VELA Audio delivers premium sound technology
+                with elegant design and immersive experiences.
+            </p>
 
         </div>
 
-        <div class="chat-input-box">
+        <div class="info-box" id="contact">
 
-            <input
-                type="text"
-                id="chatInput"
-                placeholder="Ask me anything..."
-            />
+            <h2>Contact Us</h2>
 
-            <button onclick="sendMessage()">
-                Send
-            </button>
+            <p>Email: support@velaaudio.com</p>
+
+            <p>Phone: +91 9876543210</p>
 
         </div>
 
-    </div>
+        <div class="info-box" id="support">
+
+            <h2>Support</h2>
+
+            <p>
+                24/7 customer support for all orders,
+                products and technical help.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- AI ASSISTANT -->
+
+    <section class="ai-section">
+
+        <h2>AI Shopping Assistant</h2>
+
+        <div class="ai-box">
+
+            <div id="chatMessages"></div>
+
+            <div class="ai-input">
+
+                <input
+                    type="text"
+                    id="chatInput"
+                    placeholder="Ask anything..."
+                >
+
+                <button onclick="sendMessage()">
+                    Send
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
 
     <!-- FOOTER -->
 
@@ -286,26 +222,18 @@
             <h2>VELA AUDIO</h2>
 
             <p>
-                Premium Audio E-Commerce Experience
+                Premium Sound Technology
             </p>
 
             <div class="social-icons">
 
-                <a href="#">
-                    <i class="fab fa-facebook"></i>
-                </a>
+                <i class="fab fa-instagram"></i>
 
-                <a href="#">
-                    <i class="fab fa-instagram"></i>
-                </a>
+                <i class="fab fa-facebook"></i>
 
-                <a href="#">
-                    <i class="fab fa-x-twitter"></i>
-                </a>
+                <i class="fab fa-twitter"></i>
 
-                <a href="#">
-                    <i class="fab fa-youtube"></i>
-                </a>
+                <i class="fab fa-youtube"></i>
 
             </div>
 
@@ -313,15 +241,15 @@
 
     </footer>
 
-    <!-- SCRIPTS -->
+    <!-- JS -->
 
     <script src="js/products.js"></script>
+
+    <script src="js/app.js"></script>
 
     <script src="js/cart.js"></script>
 
     <script src="js/chatbot.js"></script>
-
-    <script src="js/app.js"></script>
 
 </body>
 
