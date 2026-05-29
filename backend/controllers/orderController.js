@@ -1,17 +1,14 @@
 const db = require("../config/db");
 
-// CREATE ORDER
-
 exports.createOrder = (req,res)=>{
 
-    const userId = req.user.id;
-
     const {
-
         total,
         payment_method
-
     } = req.body;
+
+    const user_id =
+        req.user.id;
 
     const sql = `
         INSERT INTO orders
@@ -20,15 +17,12 @@ exports.createOrder = (req,res)=>{
     `;
 
     db.query(
-
         sql,
-
         [
-            userId,
+            user_id,
             total,
             payment_method
         ],
-
         (err,result)=>{
 
             if(err){
@@ -38,42 +32,10 @@ exports.createOrder = (req,res)=>{
             }
 
             res.json({
-                message:"Order Created"
+                message:"Order Placed"
             });
 
         }
-
-    );
-
-};
-
-// GET USER ORDERS
-
-exports.getOrders = (req,res)=>{
-
-    const sql = `
-        SELECT * FROM orders
-        WHERE user_id=?
-    `;
-
-    db.query(
-
-        sql,
-
-        [req.user.id],
-
-        (err,result)=>{
-
-            if(err){
-
-                return res.status(500).json(err);
-
-            }
-
-            res.json(result);
-
-        }
-
     );
 
 };

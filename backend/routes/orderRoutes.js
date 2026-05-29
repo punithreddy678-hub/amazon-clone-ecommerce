@@ -2,27 +2,19 @@ const express = require("express");
 
 const router = express.Router();
 
+const auth =
+    require("../middleware/authMiddleware");
+
 const {
 
-    createOrder,
-    getOrders
+    createOrder
 
 } = require("../controllers/orderController");
 
-const {
-    verifyToken
-} = require("../middleware/authMiddleware");
-
 router.post(
     "/create",
-    verifyToken,
+    auth,
     createOrder
-);
-
-router.get(
-    "/my-orders",
-    verifyToken,
-    getOrders
 );
 
 module.exports = router;

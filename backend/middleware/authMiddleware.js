@@ -1,30 +1,27 @@
 const jwt = require("jsonwebtoken");
 
-exports.verifyToken = (req,res,next)=>{
+module.exports = (req,res,next)=>{
 
-    const authHeader =
+    const token =
         req.headers.authorization;
 
-    if(!authHeader){
+    if(!token){
 
         return res.status(401).json({
-            message:"No Token Provided"
+            message:"No Token"
         });
 
     }
 
-    const token =
-        authHeader.split(" ")[1];
-
     try{
 
-        const decoded =
+        const verified =
             jwt.verify(
                 token,
                 process.env.JWT_SECRET
             );
 
-        req.user = decoded;
+        req.user = verified;
 
         next();
 
