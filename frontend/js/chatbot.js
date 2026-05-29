@@ -1,40 +1,28 @@
-const API_KEY = "AIzaSyDzr9ihrpnw5vC7zH3r6KrlBTsIbjFrQfI";
-
-// =======================
-// OPEN / CLOSE CHATBOT
-// =======================
+const chatbot =
+document.getElementById("aiChatbot");
 
 function toggleChatbot(){
-
-    const chatbot =
-        document.getElementById("aiChatbot");
 
     chatbot.classList.toggle("show-chat");
 }
 
-// =======================
-// SEND MESSAGE
-// =======================
-
 async function sendMessage(){
 
     const input =
-        document.getElementById("chatInput");
+    document.getElementById("chatInput");
 
     const messages =
-        document.getElementById("chatbotMessages");
+    document.getElementById("chatbotMessages");
 
-    const text =
-        input.value.trim();
+    const userMessage =
+    input.value.trim();
 
-    if(text === "") return;
-
-    // USER MESSAGE
+    if(!userMessage) return;
 
     messages.innerHTML += `
 
         <div class="user-message">
-            ${text}
+            ${userMessage}
         </div>
 
     `;
@@ -43,68 +31,41 @@ async function sendMessage(){
 
     try{
 
-        const response =
-            await fetch(
+        const response = await fetch(
+            "https://shopx-backend-ricr.onrender.com",
+            {
+                method:"POST",
 
-                `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`,
+                headers:{
+                    "Content-Type":"application/json"
+                },
 
-                {
-                    method:"POST",
-
-                    headers:{
-                        "Content-Type":"application/json"
-                    },
-
-                    body:JSON.stringify({
-
-                        contents:[
-
-                            {
-                                parts:[
-                                    {
-                                        text:text
-                                    }
-                                ]
-                            }
-
-                        ]
-
-                    })
-
-                }
-
-            );
+                body:JSON.stringify({
+                    message:userMessage
+                })
+            }
+        );
 
         const data =
-            await response.json();
-
-        const reply =
-            data.candidates[0]
-            .content.parts[0].text;
-
-        // BOT MESSAGE
+        await response.json();
 
         messages.innerHTML += `
 
             <div class="bot-message">
-                ${reply}
+                ${data.reply}
             </div>
 
         `;
 
         messages.scrollTop =
-            messages.scrollHeight;
+        messages.scrollHeight;
 
-    }
-
-    catch(error){
-
-        console.log(error);
+    }catch(error){
 
         messages.innerHTML += `
 
             <div class="bot-message">
-                Gemini AI Error
+                AI server error
             </div>
 
         `;
