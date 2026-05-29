@@ -3,142 +3,74 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
 
-    <title>VELA Cart</title>
+<title>Cart</title>
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
+<link
+rel="stylesheet"
+href="css/style.css"
+/>
 
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    >
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
 
 </head>
 
-<body onload="loadCartItems()">
+<body>
 
-    <!-- NAVBAR -->
+<nav class="navbar">
 
-    <nav class="navbar">
+<div class="logo">
 
-        <div class="logo">
+<h1>VELA</h1>
 
-            <a href="index.html">
-                <h1>VELA</h1>
-            </a>
+<span>AUDIO</span>
 
-            <span>AUDIO</span>
+</div>
 
-        </div>
+<ul class="nav-links">
 
-        <ul class="nav-links">
+<li><a href="index.html">Home</a></li>
 
-            <li>
-                <a href="index.html">
-                    Home
-                </a>
-            </li>
+<li><a href="products.html">Products</a></li>
 
-            <li>
-                <a href="wishlist.html">
-                    Wishlist
-                </a>
-            </li>
+<li><a href="wishlist.html">Wishlist</a></li>
 
-            <li>
-                <a href="login.html">
-                    Login
-                </a>
-            </li>
+<li><a href="cart.html">Cart</a></li>
 
-        </ul>
+</ul>
 
-    </nav>
+</nav>
 
-    <!-- CART PAGE -->
+<section class="cart-page">
 
-    <section class="cart-page">
+<h1 class="page-title">
 
-        <h1 class="page-title">
-            Shopping Cart
-        </h1>
+Shopping Cart
 
-        <div
-            class="cart-container"
-            id="cartContainer"
-        >
+</h1>
 
-        </div>
+<div
+class="cart-container"
+id="cartContainer"
+></div>
 
-        <!-- TOTAL -->
+<div
+class="cart-total"
+id="cartTotal"
+></div>
 
-        <div class="cart-total">
+</section>
 
-            <h2>
-                Total:
-                $
-                <span id="cartTotal">
-                    0
-                </span>
-            </h2>
-
-            <a href="checkout.html">
-
-                <button class="checkout-btn">
-
-                    Proceed To Checkout
-
-                </button>
-
-            </a>
-
-        </div>
-
-    </section>
-
-    <!-- FOOTER -->
-
-    <footer class="footer">
-
-        <div class="footer-content">
-
-            <h2>VELA AUDIO</h2>
-
-            <p>
-                Premium sound technology for
-                headphones, speakers,
-                gaming and smart devices.
-            </p>
-
-            <div class="social-icons">
-
-                <i class="fab fa-instagram"></i>
-
-                <i class="fab fa-facebook"></i>
-
-                <i class="fab fa-x-twitter"></i>
-
-                <i class="fab fa-youtube"></i>
-
-            </div>
-
-        </div>
-
-    </footer>
-
-    <!-- SCRIPT -->
-
-    <script src="js/cart.js"></script>
+<script src="js/cart.js"></script>
 
 </body>
-
 </html>

@@ -1,42 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+/>
 
-    <title>Wishlist</title>
+<title>Wishlist</title>
 
-    <link rel="stylesheet" href="css/style.css">
+<link
+rel="stylesheet"
+href="css/style.css"
+/>
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
 
 </head>
 
 <body>
 
-    <div class="products">
+<nav class="navbar">
 
-        <h2 class="section-title">
-            Wishlist
-        </h2>
+<div class="logo">
 
-        <div id="wishlistItems"></div>
+<h1>VELA</h1>
 
-    </div>
+<span>AUDIO</span>
 
-    <script src="js/wishlist.js"></script>
-    <script>
+</div>
 
-const token =
-    localStorage.getItem("token");
+<ul class="nav-links">
 
-if(!token){
+<li><a href="index.html">Home</a></li>
 
-    window.location.href =
-        "login.html";
+<li><a href="products.html">Products</a></li>
 
-}
+<li><a href="wishlist.html">Wishlist</a></li>
 
-</script>
+<li><a href="cart.html">Cart</a></li>
+
+</ul>
+
+</nav>
+
+<section class="products">
+
+<h2>
+
+My Wishlist
+
+</h2>
+
+<div
+class="product-grid"
+id="wishlistContainer"
+></div>
+
+</section>
+
+<script src="js/wishlist.js"></script>
+
 </body>
 </html>

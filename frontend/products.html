@@ -10,7 +10,7 @@ name="viewport"
 content="width=device-width, initial-scale=1.0"
 />
 
-<title>Products - VELA</title>
+<title>VELA Products</title>
 
 <link
 rel="stylesheet"
@@ -49,19 +49,23 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 </li>
 
 <li>
-<a href="cart.html">Cart</a>
+<a href="wishlist.html">Wishlist</a>
 </li>
 
 <li>
-<a href="wishlist.html">Wishlist</a>
+<a href="cart.html">Cart</a>
 </li>
 
 </ul>
 
 <div class="nav-icons">
 
-<a href="login.html">
-<i class="fa fa-user"></i>
+<a href="wishlist.html">
+<i class="fa fa-heart"></i>
+</a>
+
+<a href="cart.html">
+<i class="fa fa-shopping-cart"></i>
 </a>
 
 </div>
@@ -74,238 +78,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 
 <h2>
 
-All Products
+Trending Products
 
 </h2>
 
-<div class="product-grid">
-
-<!-- PRODUCT 1 -->
-
-<div class="product-card">
-
-<img
-src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200"
->
-
-<div class="product-info">
-
-<h3>Premium Headphones</h3>
-
-<p>
-
-Noise cancellation
-wireless headphones
-
-</p>
-
-<div class="price">
-
-₹4,999
-
-</div>
-
-<button>
-
-Add To Cart
-
-</button>
-
-</div>
-
-</div>
-
-<!-- PRODUCT 2 -->
-
-<div class="product-card">
-
-<img
-src="https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=1200"
->
-
-<div class="product-info">
-
-<h3>Bluetooth Speaker</h3>
-
-<p>
-
-Deep bass portable speaker
-
-</p>
-
-<div class="price">
-
-₹2,499
-
-</div>
-
-<button>
-
-Add To Cart
-
-</button>
-
-</div>
-
-</div>
-
-<!-- PRODUCT 3 -->
-
-<div class="product-card">
-
-<img
-src="https://images.unsplash.com/photo-1585298723682-7115561c51b7?q=80&w=1200"
->
-
-<div class="product-info">
-
-<h3>Gaming Headset</h3>
-
-<p>
-
-RGB gaming headphones
-
-</p>
-
-<div class="price">
-
-₹3,999
-
-</div>
-
-<button>
-
-Add To Cart
-
-</button>
-
-</div>
-
-</div>
-
-<!-- PRODUCT 4 -->
-
-<div class="product-card">
-
-<img
-src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200"
->
-
-<div class="product-info">
-
-<h3>Smart Watch</h3>
-
-<p>
-
-Fitness tracking smartwatch
-
-</p>
-
-<div class="price">
-
-₹5,499
-
-</div>
-
-<button>
-
-Add To Cart
-
-</button>
-
-</div>
-
-</div>
-
-<!-- PRODUCT 5 -->
-
-<div class="product-card">
-
-<img
-src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f37?q=80&w=1200"
->
-
-<div class="product-info">
-
-<h3>Wireless Earbuds</h3>
-
-<p>
-
-Premium sound earbuds
-
-</p>
-
-<div class="price">
-
-₹2,999
-
-</div>
-
-<button>
-
-Add To Cart
-
-</button>
-
-</div>
-
-</div>
-
-<!-- PRODUCT 6 -->
-
-<div class="product-card">
-
-<img
-src="https://images.unsplash.com/photo-1612444530582-fc66183b16f7?q=80&w=1200"
->
-
-<div class="product-info">
-
-<h3>Mechanical Keyboard</h3>
-
-<p>
-
-Gaming RGB keyboard
-
-</p>
-
-<div class="price">
-
-₹4,299
-
-</div>
-
-<button>
-
-Add To Cart
-
-</button>
-
-</div>
-
-</div>
-
-</div>
+<div
+class="product-grid"
+id="productsContainer"
+></div>
 
 </section>
 
-<!-- FOOTER -->
-
-<footer>
-
-<div class="footer-content">
-
-<h2>VELA AUDIO</h2>
-
-<p>
-
-Premium Sound Experience
-
-</p>
-
-</div>
-
-</footer>
+<script src="js/products.js"></script>
 
 </body>
 </html>

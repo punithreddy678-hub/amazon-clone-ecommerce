@@ -1,201 +1,122 @@
-// ===============================
-// ADD TO CART
-// ===============================
+const cartContainer =
+document.getElementById(
+"cartContainer"
+);
 
-function addToCart(name, price, image) {
+const cartTotal =
+document.getElementById(
+"cartTotal"
+);
 
-    let cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
+let cart =
+JSON.parse(
+localStorage.getItem("cart")
+) || [];
 
-    cart.push({
-        name,
-        price,
-        image
-    });
+if(cart.length===0){
 
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
+cartContainer.innerHTML = `
 
-    alert(name + " added to cart!");
+<h2>
+
+Cart Empty
+
+</h2>
+
+`;
+
 }
 
-// ===============================
-// ADD TO WISHLIST
-// ===============================
+let total = 0;
 
-function addToWishlist(name, price, image){
+cart.forEach(product=>{
 
-    let wishlist =
-        JSON.parse(localStorage.getItem("wishlist")) || [];
+total += product.price;
 
-    const alreadyExists =
-        wishlist.find(item => item.name === name);
+cartContainer.innerHTML += `
 
-    if(alreadyExists){
-        alert("Already in wishlist");
-        return;
-    }
+<div class="cart-item">
 
-    wishlist.push({
-        name,
-        price,
-        image
-    });
+<img src="${product.image}">
 
-    localStorage.setItem(
-        "wishlist",
-        JSON.stringify(wishlist)
-    );
+<div>
 
-    alert(name + " added to wishlist!");
+<h2>
+
+${product.name}
+
+</h2>
+
+<p>
+
+Premium Audio Product
+
+</p>
+
+<h3>
+
+₹${product.price}
+
+</h3>
+
+<button
+onclick="removeCart(${product.id})"
+>
+
+Remove
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+cartTotal.innerHTML = `
+
+<h2>
+
+Total : ₹${total}
+
+</h2>
+
+<button
+class="checkout-btn"
+onclick="checkout()"
+>
+
+Proceed To Checkout
+
+</button>
+
+`;
+
+/* REMOVE */
+
+function removeCart(id){
+
+cart =
+cart.filter(
+item=>item.id!==id
+);
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+location.reload();
+
 }
 
-// ===============================
-// LOAD CART ITEMS
-// ===============================
+/* CHECKOUT */
 
-function loadCartItems(){
+function checkout(){
 
-    const cartContainer =
-        document.getElementById("cartContainer");
+window.location.href =
+"checkout.html";
 
-    const totalElement =
-        document.getElementById("cartTotal");
-
-    if(!cartContainer) return;
-
-    let cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
-
-    let total = 0;
-
-    cartContainer.innerHTML = "";
-
-    cart.forEach((item,index)=>{
-
-        total += item.price;
-
-        cartContainer.innerHTML += `
-
-        <div class="cart-item">
-
-            <img src="${item.image}" alt="${item.name}">
-
-            <div class="cart-info">
-
-                <h2>${item.name}</h2>
-
-                <p>$${item.price}</p>
-
-                <button
-                    onclick="removeCartItem(${index})"
-                    class="remove-btn"
-                >
-                    Remove
-                </button>
-
-            </div>
-
-        </div>
-
-        `;
-    });
-
-    if(totalElement){
-        totalElement.innerText = total;
-    }
-}
-
-// ===============================
-// REMOVE CART ITEM
-// ===============================
-
-function removeCartItem(index){
-
-    let cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
-
-    cart.splice(index,1);
-
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
-
-    loadCartItems();
-}
-
-// ===============================
-// LOAD WISHLIST
-// ===============================
-
-function loadWishlist(){
-
-    const wishlistContainer =
-        document.getElementById("wishlistContainer");
-
-    if(!wishlistContainer) return;
-
-    let wishlist =
-        JSON.parse(localStorage.getItem("wishlist")) || [];
-
-    wishlistContainer.innerHTML = "";
-
-    wishlist.forEach((item,index)=>{
-
-        wishlistContainer.innerHTML += `
-
-        <div class="product-card">
-
-            <img src="${item.image}" alt="${item.name}">
-
-            <div class="product-info">
-
-                <h3>${item.name}</h3>
-
-                <p>$${item.price}</p>
-
-                <button
-                    onclick="moveToCart(${index})"
-                >
-                    Add To Cart
-                </button>
-
-            </div>
-
-        </div>
-
-        `;
-    });
-}
-
-// ===============================
-// MOVE WISHLIST TO CART
-// ===============================
-
-function moveToCart(index){
-
-    let wishlist =
-        JSON.parse(localStorage.getItem("wishlist")) || [];
-
-    let cart =
-        JSON.parse(localStorage.getItem("cart")) || [];
-
-    cart.push(wishlist[index]);
-
-    localStorage.setItem(
-        "cart",
-        JSON.stringify(cart)
-    );
-
-    wishlist.splice(index,1);
-
-    localStorage.setItem(
-        "wishlist",
-        JSON.stringify(wishlist)
-    );
-
-    loadWishlist();
 }

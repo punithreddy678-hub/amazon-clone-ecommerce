@@ -1,84 +1,220 @@
-const allProducts = [
+const products = [
 
 {
     id:1,
-    name:"Sony WH-1000XM5",
-    category:"Headphones",
-    price:"₹29,999",
-
-    image:
-    "https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+    name:"Premium Headphones",
+    price:4999,
+    oldPrice:6999,
+    rating:5,
+    image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200"
 },
 
 {
     id:2,
-    name:"JBL Flip 6",
-    category:"Speakers",
-    price:"₹8,999",
-
-    image:
-    "https://images.unsplash.com/photo-1545454675-3531b543be5d"
+    name:"Gaming Headset",
+    price:3999,
+    oldPrice:5999,
+    rating:4,
+    image:"https://images.unsplash.com/photo-1585298723682-7115561c51b7?q=80&w=1200"
 },
 
 {
     id:3,
-    name:"Apple AirPods Pro",
-    category:"Earbuds",
-    price:"₹24,999",
-
-    image:
-    "https://images.unsplash.com/photo-1606220588913-b3aacb4d2f46"
+    name:"Wireless Earbuds",
+    price:2999,
+    oldPrice:4499,
+    rating:5,
+    image:"https://images.unsplash.com/photo-1606220588913-b3aacb4d2f37?q=80&w=1200"
 },
 
 {
     id:4,
-    name:"Apple Watch Ultra",
-    category:"Smart Watches",
-    price:"₹89,999",
+    name:"Bluetooth Speaker",
+    price:2499,
+    oldPrice:3999,
+    rating:4,
+    image:"https://images.unsplash.com/photo-1545454675-3531b543be5d?q=80&w=1200"
+},
 
-    image:
-    "https://images.unsplash.com/photo-1546868871-7041f2a55e12"
+{
+    id:5,
+    name:"Smart Watch",
+    price:5499,
+    oldPrice:7999,
+    rating:5,
+    image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200"
+},
+
+{
+    id:6,
+    name:"Mechanical Keyboard",
+    price:4299,
+    oldPrice:5999,
+    rating:4,
+    image:"https://images.unsplash.com/photo-1612444530582-fc66183b16f7?q=80&w=1200"
 }
 
 ];
 
 const productsContainer =
-document.getElementById("products");
+document.getElementById(
+    "productsContainer"
+);
 
-function displayProducts(items){
+products.forEach(product=>{
 
-    if(!productsContainer) return;
+productsContainer.innerHTML += `
 
-    productsContainer.innerHTML = "";
+<div class="product-card">
 
-    items.forEach(product=>{
+<div class="discount-badge">
 
-        productsContainer.innerHTML += `
+SALE
 
-        <div class="product-card">
+</div>
 
-            <img src="${product.image}" />
+<div
+class="wishlist-icon"
+onclick="addToWishlist(${product.id})"
+>
 
-            <div class="product-info">
+<i class="fa fa-heart"></i>
 
-                <h3>${product.name}</h3>
+</div>
 
-                <p>${product.category}</p>
+<img src="${product.image}">
 
-                <div class="price">
-                    ${product.price}
-                </div>
+<div class="product-info">
 
-                <button onclick="addToCart(${product.id})">
-                    Add To Cart
-                </button>
+<h3>
 
-            </div>
+${product.name}
 
-        </div>
+</h3>
 
-        `;
-    });
+<div class="stars">
+
+${generateStars(product.rating)}
+
+</div>
+
+<p>
+
+Premium Quality Product
+
+</p>
+
+<div class="price-row">
+
+<div class="price">
+
+₹${product.price}
+
+</div>
+
+<div class="old-price">
+
+₹${product.oldPrice}
+
+</div>
+
+</div>
+
+<button
+onclick="addToCart(${product.id})"
+>
+
+Add To Cart
+
+</button>
+
+<button
+class="details-btn"
+onclick="viewDetails(${product.id})"
+>
+
+View Details
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+function generateStars(rating){
+
+let stars = "";
+
+for(let i=0;i<rating;i++){
+
+stars += `<i class="fa fa-star"></i>`;
+
 }
 
-displayProducts(allProducts);
+return stars;
+
+}
+
+/* ADD TO CART */
+
+function addToCart(id){
+
+const product =
+products.find(p=>p.id===id);
+
+let cart =
+JSON.parse(
+localStorage.getItem("cart")
+) || [];
+
+cart.push(product);
+
+localStorage.setItem(
+"cart",
+JSON.stringify(cart)
+);
+
+alert("Added To Cart");
+
+}
+
+/* ADD TO WISHLIST */
+
+function addToWishlist(id){
+
+const product =
+products.find(p=>p.id===id);
+
+let wishlist =
+JSON.parse(
+localStorage.getItem("wishlist")
+) || [];
+
+wishlist.push(product);
+
+localStorage.setItem(
+"wishlist",
+JSON.stringify(wishlist)
+);
+
+alert("Added To Wishlist");
+
+}
+
+/* DETAILS */
+
+function viewDetails(id){
+
+localStorage.setItem(
+"selectedProduct",
+id
+);
+
+window.location.href =
+"product-details.html";
+
+}

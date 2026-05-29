@@ -746,3 +746,102 @@ footer{
     }
 
 }
+/* =========================================
+   PRODUCT EXTRA UI
+========================================= */
+
+.product-card{
+    position:relative;
+}
+
+.discount-badge{
+    position:absolute;
+    top:15px;
+    left:15px;
+    background:#ff2e63;
+    color:white;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:600;
+    z-index:2;
+}
+
+.wishlist-icon{
+    position:absolute;
+    top:15px;
+    right:15px;
+
+    width:45px;
+    height:45px;
+
+    background:white;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    z-index:2;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+    transition:0.3s;
+}
+
+.wishlist-icon:hover{
+    background:#ff78ac;
+    color:white;
+    transform:scale(1.1);
+}
+
+.stars{
+    color:#ffc107;
+    margin-bottom:12px;
+}
+
+.price-row{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.old-price{
+    text-decoration:line-through;
+    color:#999;
+    font-size:18px;
+}
+
+.details-btn{
+    margin-top:12px;
+    background:#7b2cbf !important;
+}
+/* =========================================
+   WISHLIST / CART BUTTONS
+========================================= */
+
+.remove-btn{
+    margin-top:12px;
+    background:#ff2e63 !important;
+}
+
+.remove-btn:hover{
+    background:#d90429 !important;
+}
+
+.cart-item button{
+    margin-top:15px;
+    padding:12px 20px;
+    border:none;
+    border-radius:12px;
+    background:#ff2e63;
+    color:white;
+    cursor:pointer;
+}
+
+.cart-item button:hover{
+    background:#d90429;
+}
