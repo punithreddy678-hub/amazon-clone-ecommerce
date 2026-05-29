@@ -107,69 +107,69 @@
 
     <!-- CATEGORIES -->
 
-    <section class="categories">
+<section class="categories">
 
-        <div class="category-card">
-            <i class="fa fa-headphones"></i>
-            <h3>Headphones</h3>
-        </div>
+    <div
+        class="category-card"
+        onclick="filterCategory('Headphones')"
+    >
+        Headphones
+    </div>
 
-        <div class="category-card">
-            <i class="fa fa-volume-high"></i>
-            <h3>Speakers</h3>
-        </div>
+    <div
+        class="category-card"
+        onclick="filterCategory('Speakers')"
+    >
+        Speakers
+    </div>
 
-        <div class="category-card">
-            <i class="fa fa-music"></i>
-            <h3>Earbuds</h3>
-        </div>
+    <div
+        class="category-card"
+        onclick="filterCategory('Earbuds')"
+    >
+        Earbuds
+    </div>
 
-        <div class="category-card">
-            <i class="fa fa-clock"></i>
-            <h3>Smart Watches</h3>
-        </div>
+    <div
+        class="category-card"
+        onclick="filterCategory('Smart Watches')"
+    >
+        Smart Watches
+    </div>
 
-        <div class="category-card">
-            <i class="fa fa-gamepad"></i>
-            <h3>Gaming</h3>
-        </div>
+    <div
+        class="category-card"
+        onclick="filterCategory('Gaming')"
+    >
+        Gaming
+    </div>
 
-        <div class="category-card">
-            <i class="fa fa-plug"></i>
-            <h3>Accessories</h3>
-        </div>
+    <div
+        class="category-card"
+        onclick="filterCategory('Accessories')"
+    >
+        Accessories
+    </div>
 
-    </section>
+</section>
 
     <!-- PRODUCTS -->
 
-    <section class="products" id="products">
-
-        <h2>Featured Products</h2>
-
 <div class="product-grid" id="productsContainer">
 
-    <!-- PRODUCT 1 -->
+    <!-- HEADPHONES -->
 
-    <div class="product-card">
+    <div class="product-card" data-category="Headphones">
 
-        <img
-            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
-            alt=""
-        >
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e">
 
         <div class="product-info">
 
             <h3>VELA Lunar ANC</h3>
 
-            <p>
-                Premium noise cancelling headphones
-                with immersive bass.
-            </p>
+            <p>Premium ANC wireless headphones.</p>
 
-            <div class="price">
-                ₹24,999
-            </div>
+            <div class="price">₹24,999</div>
 
             <button onclick="addToCart('VELA Lunar ANC',24999)">
                 Add To Cart
@@ -179,27 +179,19 @@
 
     </div>
 
-    <!-- PRODUCT 2 -->
+    <!-- SPEAKERS -->
 
-    <div class="product-card">
+    <div class="product-card" data-category="Speakers">
 
-        <img
-            src="https://images.unsplash.com/photo-1546435770-a3e426bf472b"
-            alt=""
-        >
+        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b">
 
         <div class="product-info">
 
             <h3>VELA Boom Speaker</h3>
 
-            <p>
-                Portable wireless speaker with
-                crystal clear sound.
-            </p>
+            <p>Portable deep bass Bluetooth speaker.</p>
 
-            <div class="price">
-                ₹8,499
-            </div>
+            <div class="price">₹8,499</div>
 
             <button onclick="addToCart('VELA Boom Speaker',8499)">
                 Add To Cart
@@ -209,27 +201,19 @@
 
     </div>
 
-    <!-- PRODUCT 3 -->
+    <!-- EARBUDS -->
 
-    <div class="product-card">
+    <div class="product-card" data-category="Earbuds">
 
-        <img
-            src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f37"
-            alt=""
-        >
+        <img src="https://images.unsplash.com/photo-1606220588913-b3aacb4d2f37">
 
         <div class="product-info">
 
             <h3>VELA AirBuds Pro</h3>
 
-            <p>
-                Ultra lightweight earbuds with
-                deep bass performance.
-            </p>
+            <p>Noise cancellation true wireless earbuds.</p>
 
-            <div class="price">
-                ₹5,999
-            </div>
+            <div class="price">₹5,999</div>
 
             <button onclick="addToCart('VELA AirBuds Pro',5999)">
                 Add To Cart
@@ -239,29 +223,21 @@
 
     </div>
 
-    <!-- PRODUCT 4 -->
+    <!-- SMART WATCH -->
 
-    <div class="product-card">
+    <div class="product-card" data-category="Smart Watches">
 
-        <img
-            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30"
-            alt=""
-        >
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
 
         <div class="product-info">
 
-            <h3>VELA Smart Watch X</h3>
+            <h3>VELA Watch X</h3>
 
-            <p>
-                Stylish smartwatch with fitness
-                and notification features.
-            </p>
+            <p>Fitness smartwatch with AMOLED display.</p>
 
-            <div class="price">
-                ₹11,999
-            </div>
+            <div class="price">₹11,999</div>
 
-            <button onclick="addToCart('VELA Smart Watch X',11999)">
+            <button onclick="addToCart('VELA Watch X',11999)">
                 Add To Cart
             </button>
 
@@ -269,27 +245,19 @@
 
     </div>
 
-    <!-- PRODUCT 5 -->
+    <!-- GAMING -->
 
-    <div class="product-card">
+    <div class="product-card" data-category="Gaming">
 
-        <img
-            src="https://images.unsplash.com/photo-1593305841991-05c297ba4575"
-            alt=""
-        >
+        <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575">
 
         <div class="product-info">
 
             <h3>VELA Gaming Headset</h3>
 
-            <p>
-                RGB gaming headset with ultra
-                surround sound experience.
-            </p>
+            <p>RGB gaming headset with surround sound.</p>
 
-            <div class="price">
-                ₹6,499
-            </div>
+            <div class="price">₹6,499</div>
 
             <button onclick="addToCart('VELA Gaming Headset',6499)">
                 Add To Cart
@@ -299,29 +267,21 @@
 
     </div>
 
-    <!-- PRODUCT 6 -->
+    <!-- ACCESSORIES -->
 
-    <div class="product-card">
+    <div class="product-card" data-category="Accessories">
 
-        <img
-            src="https://images.unsplash.com/photo-1518444065439-e933c06ce9cd"
-            alt=""
-        >
+        <img src="https://images.unsplash.com/photo-1518444065439-e933c06ce9cd">
 
         <div class="product-info">
 
-            <h3>VELA Audio Cable Kit</h3>
+            <h3>VELA Cable Kit</h3>
 
-            <p>
-                Premium braided accessories and
-                charging cable combo.
-            </p>
+            <p>Premium braided charging accessories.</p>
 
-            <div class="price">
-                ₹2,499
-            </div>
+            <div class="price">₹2,499</div>
 
-            <button onclick="addToCart('VELA Audio Cable Kit',2499)">
+            <button onclick="addToCart('VELA Cable Kit',2499)">
                 Add To Cart
             </button>
 
@@ -330,7 +290,6 @@
     </div>
 
 </div>
-    </section>
 
     <!-- ABOUT -->
 
