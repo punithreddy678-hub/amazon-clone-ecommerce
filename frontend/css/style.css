@@ -882,3 +882,58 @@ footer{
     cursor:pointer;
     font-size:13px;
 }
+/* =========================================
+   EXTRA PRODUCT CARD UI
+========================================= */
+
+.discount-badge{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:#ff4d6d;
+    color:white;
+    padding:6px 10px;
+    border-radius:10px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.wishlist-icon{
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:40px;
+    height:40px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.product-card{
+    position:relative;
+}
+
+.stars{
+    color:gold;
+    margin:10px 0;
+}
+
+.price-row{
+    display:flex;
+    gap:15px;
+    align-items:center;
+}
+
+.old-price{
+    text-decoration:line-through;
+    color:#999;
+}
+
+.details-btn{
+    margin-top:10px;
+    background:#7b2cbf !important;
+}

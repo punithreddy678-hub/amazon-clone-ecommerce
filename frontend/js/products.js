@@ -1,3 +1,6 @@
+const API =
+"https://shopx-backend-ricr.onrender.com";
+
 const products = [
 
 {
@@ -13,7 +16,7 @@ const products = [
     id:2,
     name:"Gaming Headset",
     price:3999,
-    oldPrice:5999,
+    oldPrice:9999,
     rating:4,
     image:"https://images.unsplash.com/photo-1585298723682-7115561c51b7?q=80&w=1200"
 },
@@ -57,17 +60,11 @@ const products = [
 ];
 
 /* =========================================
-   PRODUCTS CONTAINER
+   PRODUCTS DISPLAY
 ========================================= */
 
 const productsContainer =
-document.getElementById(
-    "productsContainer"
-);
-
-/* =========================================
-   DISPLAY PRODUCTS
-========================================= */
+document.getElementById("productsContainer");
 
 if(productsContainer){
 
@@ -78,73 +75,48 @@ productsContainer.innerHTML += `
 <div class="product-card">
 
     <div class="discount-badge">
-
         SALE
-
     </div>
 
     <div
     class="wishlist-icon"
     onclick="addToWishlist(${product.id})"
     >
-
         <i class="fa fa-heart"></i>
-
     </div>
 
     <img src="${product.image}">
 
     <div class="product-info">
 
-        <h3>
-
-            ${product.name}
-
-        </h3>
+        <h3>${product.name}</h3>
 
         <div class="stars">
-
             ${generateStars(product.rating)}
-
         </div>
 
-        <p>
-
-            Premium Quality Product
-
-        </p>
+        <p>Premium Quality Product</p>
 
         <div class="price-row">
 
             <div class="price">
-
                 ₹${product.price}
-
             </div>
 
             <div class="old-price">
-
                 ₹${product.oldPrice}
-
             </div>
 
         </div>
 
-        <button
-        onclick="addToCart(${product.id})"
-        >
-
+        <button onclick="addToCart(${product.id})">
             Add To Cart
-
         </button>
 
         <button
         class="details-btn"
-        onclick="viewDetails(${product.id})"
-        >
-
+        onclick="viewDetails(${product.id})">
             View Details
-
         </button>
 
     </div>
@@ -158,7 +130,7 @@ productsContainer.innerHTML += `
 }
 
 /* =========================================
-   STARS
+   STAR RATING
 ========================================= */
 
 function generateStars(rating){
@@ -167,8 +139,7 @@ let stars = "";
 
 for(let i=0;i<rating;i++){
 
-    stars +=
-    `<i class="fa fa-star"></i>`;
+stars += `<i class="fa fa-star"></i>`;
 
 }
 
@@ -183,25 +154,32 @@ return stars;
 function addToCart(id){
 
 const product =
-products.find(
-    p=>p.id===id
-);
+products.find(p=>p.id===id);
 
 let cart =
 JSON.parse(
-    localStorage.getItem("cart")
+localStorage.getItem("cart")
 ) || [];
+
+const exists =
+cart.find(item=>item.id===id);
+
+if(exists){
+
+alert("Already In Cart");
+
+return;
+
+}
 
 cart.push(product);
 
 localStorage.setItem(
-    "cart",
-    JSON.stringify(cart)
+"cart",
+JSON.stringify(cart)
 );
 
-alert(
-    "Added To Cart 🛒"
-);
+alert("Added To Cart 🛒");
 
 }
 
@@ -211,83 +189,107 @@ alert(
 
 async function addToWishlist(id){
 
-    const token =
-    localStorage.getItem("token");
+const token =
+localStorage.getItem("token");
 
-    if(!token){
+if(!token){
 
-        alert(
-            "Please Login First"
-        );
+alert("Please Login First");
 
-        window.location.href =
-        "login.html";
+window.location.href =
+"login.html";
 
-        return;
+return;
 
-    }
+}
 
-    const product =
-    products.find(
-        p => p.id === id
-    );
+const product =
+products.find(
+p=>p.id===id
+);
 
-    /* LOCAL STORAGE */
+let wishlist =
+JSON.parse(
+localStorage.getItem("wishlist")
+) || [];
 
-    let wishlist =
-    JSON.parse(
-        localStorage.getItem("wishlist")
-    ) || [];
+const exists =
+wishlist.find(
+item=>item.id===id
+);
 
-    wishlist.push(product);
+if(exists){
 
-    localStorage.setItem(
-        "wishlist",
-        JSON.stringify(wishlist)
-    );
+alert(
+"Already In Wishlist ❤️"
+);
 
-    /* DATABASE */
+return;
 
-    try{
+}
 
-        await fetch(
-            "https://shopx-backend-ricr.onrender.com/api/wishlist",
-            {
-                method:"POST",
+wishlist.push(product);
 
-                headers:{
-                    "Content-Type":"application/json",
-                    authorization:token
-                },
+localStorage.setItem(
+"wishlist",
+JSON.stringify(wishlist)
+);
 
-                body:JSON.stringify({
+try{
 
-                    product_name:
-                    product.name,
+const response =
+await fetch(
+`${API}/api/wishlist`,
+{
+method:"POST",
 
-                    product_price:
-                    product.price,
+headers:{
+"Content-Type":"application/json",
+authorization:token
+},
 
-                    product_image:
-                    product.image
+body:JSON.stringify({
 
-                })
-            }
-        );
+product_name:
+product.name,
 
-        alert(
-            "Added To Wishlist ❤️"
-        );
+product_price:
+product.price,
 
-    }catch(error){
+product_image:
+product.image
 
-        console.log(error);
+})
+}
+);
 
-        alert(
-            "Wishlist Error"
-        );
+const data =
+await response.json();
 
-    }
+if(response.ok){
+
+alert(
+"Added To Wishlist ❤️"
+);
+
+}else{
+
+alert(
+data.message ||
+"Wishlist Error"
+);
+
+}
+
+}catch(error){
+
+console.log(error);
+
+alert(
+"Server Error"
+);
+
+}
 
 }
 
@@ -298,8 +300,8 @@ async function addToWishlist(id){
 function viewDetails(id){
 
 localStorage.setItem(
-    "selectedProduct",
-    id
+"selectedProduct",
+id
 );
 
 window.location.href =

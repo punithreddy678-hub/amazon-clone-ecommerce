@@ -5,22 +5,16 @@
 
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
-/>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>VELA Products</title>
 
-<link
-rel="stylesheet"
-href="css/style.css"
-/>
+<link rel="stylesheet"
+href="css/style.css">
 
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-/>
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
 
@@ -33,28 +27,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <div class="logo">
 
 <h1>VELA</h1>
-
 <span>AUDIO</span>
 
 </div>
 
 <ul class="nav-links">
 
-<li>
-<a href="index.html">Home</a>
-</li>
+<li><a href="index.html">Home</a></li>
 
-<li>
-<a href="products.html">Products</a>
-</li>
+<li><a href="products.html">Products</a></li>
 
-<li>
-<a href="wishlist.html">Wishlist</a>
-</li>
+<li><a href="wishlist.html">Wishlist</a></li>
 
-<li>
-<a href="cart.html">Cart</a>
-</li>
+<li><a href="cart.html">Cart</a></li>
 
 </ul>
 
@@ -68,28 +53,82 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 <i class="fa fa-shopping-cart"></i>
 </a>
 
+<a href="login.html">
+<i class="fa fa-user"></i>
+</a>
+
 </div>
 
 </nav>
 
-<!-- PRODUCTS -->
+<!-- PAGE TITLE -->
 
 <section class="products">
 
-<h2>
+<h2 id="categoryTitle">
 
-Trending Products
+All Products
 
 </h2>
 
 <div
 class="product-grid"
-id="productsContainer"
-></div>
+id="productsContainer">
+
+</div>
 
 </section>
 
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-content">
+
+<h2>VELA AUDIO</h2>
+
+<p>Premium Sound Experience</p>
+
+<div class="social-icons">
+
+<i class="fab fa-instagram"></i>
+
+<i class="fab fa-facebook"></i>
+
+<i class="fab fa-x-twitter"></i>
+
+<i class="fab fa-youtube"></i>
+
+</div>
+
+</div>
+
+</footer>
+
+<script>
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const category =
+params.get("category");
+
+if(category){
+
+document.getElementById(
+"categoryTitle"
+).innerText =
+category + " Products";
+
+}
+
+</script>
+
 <script src="js/products.js"></script>
 <script src="js/user.js"></script>
+
 </body>
+
 </html>
