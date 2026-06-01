@@ -190,38 +190,43 @@ async function placeOrder(product){
     const token =
     localStorage.getItem("token");
 
-    try{
+    if(!token){
 
-        await fetch(
-            "https://shopx-backend-ricr.onrender.com/api/orders",
-            {
-                method:"POST",
+        alert("Please Login");
 
-                headers:{
-                    "Content-Type":"application/json",
-                    authorization:token
-                },
-
-                body:JSON.stringify({
-
-                    product_name:
-                    product.name,
-
-                    product_price:
-                    product.price,
-
-                    product_image:
-                    product.image
-
-                })
-
-            }
-        );
-
-    }catch(error){
-
-        console.log(error);
-
+        return;
     }
+
+    const response =
+    await fetch(
+        "https://shopx-backend-ricr.onrender.com/api/orders",
+        {
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json",
+                authorization:token
+            },
+
+            body:JSON.stringify({
+
+                product_name:
+                product.name,
+
+                product_price:
+                product.price,
+
+                product_image:
+                product.image
+
+            })
+        }
+    );
+
+    const data =
+    await response.json();
+
+    alert(data.message);
+
 
 }

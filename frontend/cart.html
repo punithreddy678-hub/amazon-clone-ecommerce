@@ -2,76 +2,114 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
-/>
+<title>Shopping Cart | VELA Audio</title>
 
-<title>Cart</title>
-
-<link
-rel="stylesheet"
-href="css/style.css"
-/>
+<link rel="stylesheet" href="css/style.css">
 
 <link
 rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 />
-
 </head>
 
 <body>
 
+<!-- NAVBAR -->
+
 <nav class="navbar">
 
-<div class="logo">
+    <div class="logo">
+        <h1>VELA</h1>
+        <span>AUDIO</span>
+    </div>
 
-<h1>VELA</h1>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+        <li><a href="cart.html">Cart</a></li>
+    </ul>
 
-<span>AUDIO</span>
+    <div class="nav-icons">
 
-</div>
+        <a href="wishlist.html">
+            <i class="fa fa-heart"></i>
+        </a>
 
-<ul class="nav-links">
+        <a href="cart.html">
+            <i class="fa fa-shopping-cart"></i>
+        </a>
 
-<li><a href="index.html">Home</a></li>
+        <span id="userName"></span>
 
-<li><a href="products.html">Products</a></li>
+        <button
+            id="logoutBtn"
+            class="logout-btn"
+            onclick="logout()"
+            style="display:none;"
+        >
+            Logout
+        </button>
 
-<li><a href="wishlist.html">Wishlist</a></li>
-
-<li><a href="cart.html">Cart</a></li>
-
-</ul>
+    </div>
 
 </nav>
 
+<!-- CART -->
+
 <section class="cart-page">
 
-<h1 class="page-title">
+    <h1 class="page-title">
+        Shopping Cart
+    </h1>
 
-Shopping Cart
+    <div
+        class="cart-container"
+        id="cartContainer"
+    ></div>
 
-</h1>
-
-<div
-class="cart-container"
-id="cartContainer"
-></div>
-
-<div
-class="cart-total"
-id="cartTotal"
-></div>
+    <div
+        class="cart-total"
+        id="cartTotal"
+    ></div>
 
 </section>
 
 <script src="js/cart.js"></script>
-<script src="js/user.js"></script>
+
+<script>
+
+const user =
+JSON.parse(
+localStorage.getItem("user")
+);
+
+if(user){
+
+    document.getElementById(
+        "userName"
+    ).innerHTML =
+    `<i class="fa fa-user"></i> ${user.name}`;
+
+    document.getElementById(
+        "logoutBtn"
+    ).style.display = "block";
+}
+
+function logout(){
+
+    localStorage.removeItem("token");
+
+    localStorage.removeItem("user");
+
+    window.location.href =
+    "login.html";
+}
+
+</script>
 
 </body>
 </html>
